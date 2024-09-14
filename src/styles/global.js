@@ -6,4 +6,7 @@ export default createGlobalStyle`
         border: 0;
         box-sizing: border-box;
     }
+    :root{
+        font-size: 10px;
+    }
 `
