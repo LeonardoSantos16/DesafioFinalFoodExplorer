@@ -9,4 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         font-size: 10px !important;
     }
+
+    body{
+        background: ${({ theme }) => theme.COLORS.DARK_400}
+    }
 `

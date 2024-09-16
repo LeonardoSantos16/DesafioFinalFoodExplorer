@@ -6,12 +6,14 @@ import theme from './styles/theme'
 //import './index.css'
 import { Footer } from './components/footer'
 import { HeaderDesktop } from './components/header/headerDesktop'
+import { SignUp } from './pages/SignUp'
+import { SignIn } from './pages/SignIn'
 import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <HeaderDesktop />
-      <Footer />
+      <SignIn />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,

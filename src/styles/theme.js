@@ -1,3 +1,4 @@
+import { fonts } from "./fonts"
 export default{
     COLORS:{
         LIGHT_100: '#FFFFFF',
@@ -34,4 +35,5 @@ export default{
         tablet: '768px',
         desktop: '992px',
       },
+    fonts,
 }

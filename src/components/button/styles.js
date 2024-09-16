@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import theme from "../../styles/theme";
+
 import { fonts } from "../../styles/fonts";
 
 export const Container = styled.button`
@@ -13,6 +13,7 @@ export const Container = styled.button`
     align-items: center;
     background: ${props => props.background || 'none'};
     border: none;
-    color: ${theme.COLORS.LIGHT_100};
-    ${fonts.poppinsMedium100}
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    ${({ theme }) => theme.fonts.poppinsMedium100};
+    cursor: pointer;
 `

@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-
+// TODO: mudar os arquivos que estão importando direntamente .fonts para o provider
 export const fonts = {
   poppinsMedium100: css`
     font-family: "Poppins", sans-serif;
@@ -35,6 +35,14 @@ export const fonts = {
     font-style: normal;
     line-height: 140%;
     font-size: 2.4rem;
+  `,
+
+  poppinsSemiBold: css`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
   `,
 
   poppinsRegular300: css`
@@ -113,4 +121,12 @@ export const fonts = {
     font-style: normal;
     font-size: 4.2rem;
   `,
+
+  robotoBoldBig2: css`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 37.2431px;
+    line-height: 44px;
+  `
 }

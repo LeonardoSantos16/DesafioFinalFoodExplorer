@@ -2,11 +2,11 @@
 
 - input - feito
 - button - feito
-- header
+- header - feito
 - footer - feito
 - brand (logo + nome) - feito
-- card
-- tags ingredientes
-- menu do header mobile
-- banner home
+- card - feito
+- tag - feito
+- tags ingredientes - feito
+- banner home - feito
 - back button  - feito

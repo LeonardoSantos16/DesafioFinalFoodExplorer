@@ -1,10 +1,10 @@
 import { Container } from "./styles";
 
-export function Input({ icon: Icon, backgroundColor , borderRadius, ...rest }) {
+export function Input({ icon: Icon, backgroundcolor , width, borderradius, ...rest }) {
     return (
-        <Container backgroundColor={backgroundColor} borderRadius={borderRadius}>
-            {Icon && <Icon size={20} />}
-            <input {...rest} />
+        <Container backgroundColor={backgroundcolor} borderRadius={borderradius}>
+            {Icon && <Icon color="#ffffff" size={20} />}
+            <input width={width} {...rest} />
         </Container>
     );
 }

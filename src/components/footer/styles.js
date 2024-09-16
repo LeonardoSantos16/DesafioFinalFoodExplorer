@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { fonts } from "../../styles/fonts";
 import theme from "../../styles/theme";
+
 export const Container = styled.footer`
     display: flex;
     align-items: center;

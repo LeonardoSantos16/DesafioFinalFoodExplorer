@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import theme from "../../../styles/theme";
+
 
 export const Container = styled.header`
     width: 100%;
-    background-color: ${theme.COLORS.DARK_600};
+    background-color: ${({theme}) => theme.COLORS.DARK_600};
     padding: 2.8rem 12.3rem;
 `
 
@@ -16,7 +16,7 @@ export const NavHeader = styled.nav`
 
 export const ButtonSignOut = styled.button`
     border: none;
-    color: ${theme.COLORS.LIGHT_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_100};
     background: none;
     cursor: pointer;
     width: 3.2rem;

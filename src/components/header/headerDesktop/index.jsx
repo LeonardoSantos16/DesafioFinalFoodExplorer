@@ -1,4 +1,3 @@
-import { fonts } from "../../../styles/fonts";
 import { Brand } from "../../brand";
 import { useTheme } from "styled-components";
 import logo from '../../../assets/logo_cake.svg'
@@ -18,14 +17,14 @@ export function HeaderDesktop(){
                     sizeLogo='30px'
                     gap='10px'
                     corbrand={theme.COLORS.LIGHT_100}
-                    styletext={fonts.robotoBoldBigger} />
+                    styletext={theme.fonts.robotoBoldBigger} />
                 
                 <InputHeader>
                     <Input
-                        icon={ MagnifyingGlass }
-                        fontstyle={fonts.robotoRegularSmall}
+                        icon={ MagnifyingGlass}
                         placeholder="Busque por pratos ou ingredientes"
-                        backgroundColor={theme.COLORS.DARK_900}
+                        backgroundcolor={theme.COLORS.DARK_900}
+                        width='250px'
                     />
                 </InputHeader>
                 
@@ -36,6 +35,7 @@ export function HeaderDesktop(){
                         text='Pedidos (0)'
                         gap='8px'
                         height="56px" 
+                        
                     />
                 </ButtonTest>
                 
