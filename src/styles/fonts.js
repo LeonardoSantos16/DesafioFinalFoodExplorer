@@ -109,7 +109,7 @@ export const fonts = {
 
   robotoBoldGiant: css`
     font-family: "Roboto", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-style: normal;
     font-size: 4.2rem;
   `,

@@ -1,11 +1,12 @@
 # Components
 
-- input
-- button
+- input - feito
+- button - feito
 - header
-- footer
-- brand (logo + nome)
+- footer - feito
+- brand (logo + nome) - feito
 - card
 - tags ingredientes
 - menu do header mobile
 - banner home
+- back button  - feito

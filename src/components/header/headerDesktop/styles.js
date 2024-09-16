@@ -1,0 +1,32 @@
+import styled from "styled-components";
+import theme from "../../../styles/theme";
+
+export const Container = styled.header`
+    width: 100%;
+    background-color: ${theme.COLORS.DARK_600};
+    padding: 2.8rem 12.3rem;
+`
+
+export const NavHeader = styled.nav`
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+    justify-content: center;
+`
+
+export const ButtonSignOut = styled.button`
+    border: none;
+    color: ${theme.COLORS.LIGHT_100};
+    background: none;
+    cursor: pointer;
+    width: 3.2rem;
+    height: 3.2rem;
+`
+
+export const ButtonTest = styled.div`
+    width: 21.6rem;
+`
+
+export const InputHeader = styled.div`
+    width: 58rem;
+`
