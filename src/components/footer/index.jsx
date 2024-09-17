@@ -13,9 +13,9 @@ export function Footer(){
             <FooterContent>
                 <Brand 
                     logo={logo}
-                    sizeLogo={ isMobile ? '20px' : '29px'} 
-                    corBrand={theme.COLORS.LIGHT_700}
-                    styleText={fonts.robotoBoldBigger}
+                    sizelogo={ isMobile ? '20px' : '29px'} 
+                    corbrand={theme.COLORS.LIGHT_700}
+                    styletext={ isMobile ? fonts.robotoBoldSmaller : fonts.robotoBoldBigger}
                     />
                 <Copyright>© 2023 - Todos os direitos reservados.</Copyright>
             </FooterContent>

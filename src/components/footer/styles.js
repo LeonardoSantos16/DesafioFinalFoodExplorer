@@ -10,9 +10,7 @@ export const Container = styled.footer`
     height: 7.7rem;
     padding: 3rem 2.7rem;
     background-color: ${theme.COLORS.DARK_600};
-    @media  (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
-        padding: 3rem 12.3rem;
-    }
+
 `
 
 export const FooterContent = styled.div`

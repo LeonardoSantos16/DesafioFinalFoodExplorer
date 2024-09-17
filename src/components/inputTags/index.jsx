@@ -1,20 +1,20 @@
 import { Container } from "./styles";
-import { Plus, Close } from "@phosphor-icons/react";
-export function InputTags({flag, title}){
+import { Plus, X } from "@phosphor-icons/react";
+export function InputTags({isNew, title, ...rest}){
     return(
-        <Container>
+        <Container isNew={isNew}>
             <input
                 type="text"
                 value={title}
-                readOnly={!flag}
+                readOnly={!isNew}
                 {...rest}
             />
 
             <button
             type="button"
-            onClick={onClick}
+           // onClick={onClick}
             className={isNew ? 'button-add' : 'button-delete'} >
-                {isNew ? <Plus size={8} /> : <Close size={8}/>}
+                {isNew ? <Plus size={8} /> : <X size={8}/>}
             </button>
 
         </Container>

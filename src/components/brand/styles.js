@@ -5,6 +5,8 @@ export const Container = styled.div`
     gap: 1.9rem;
     align-items: center;
     height: 4.8rem;
+
+  
 `
 
 export const StyledH1 = styled.h1`

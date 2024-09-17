@@ -24,7 +24,7 @@ export function HeaderDesktop(){
                         icon={ MagnifyingGlass}
                         placeholder="Busque por pratos ou ingredientes"
                         backgroundcolor={theme.COLORS.DARK_900}
-                        width='250px'
+                       
                     />
                 </InputHeader>
                 

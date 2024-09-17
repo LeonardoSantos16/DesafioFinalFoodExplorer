@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.header`
     width: 100%;
     background-color: ${({theme}) => theme.COLORS.DARK_600};
-    padding: 2.8rem 12.3rem;
+    padding: 2.8rem 0rem;
 `
 
 export const NavHeader = styled.nav`
@@ -12,6 +12,9 @@ export const NavHeader = styled.nav`
     gap: 3.2rem;
     align-items: center;
     justify-content: center;
+    max-width: 114rem;
+    margin: 0 auto;
+    padding: 0 1rem;
 `
 
 export const ButtonSignOut = styled.button`
@@ -28,5 +31,6 @@ export const ButtonTest = styled.div`
 `
 
 export const InputHeader = styled.div`
-    width: 58rem;
+    width: 100%;
+    max-width: 58rem;
 `

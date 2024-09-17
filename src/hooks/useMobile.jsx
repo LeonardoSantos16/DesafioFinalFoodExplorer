@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 export const useMobile = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    const handleResize = () => setIsMobile(window.innerWidth <= 576);
     window.addEventListener('resize', handleResize);
 
     // Cleanup para remover o event listener quando o componente desmonta

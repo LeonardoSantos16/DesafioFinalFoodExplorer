@@ -8,6 +8,7 @@ export const Container = styled.div`
     border: ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.LIGHT_500}` : "none"};
     padding: .8rem .16rem;
     border-radius: .8rem;
+    width: 12rem;
     height: 3.2rem;
     background: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.LIGHT_600};
 
@@ -15,9 +16,9 @@ export const Container = styled.div`
         ${({ theme }) => theme.fonts.robotoRegularSmall};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         background: transparent;
-        width: 100%;
+        width: 65%;
         border: none;
-
+        
         &::placeholder {
         color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }

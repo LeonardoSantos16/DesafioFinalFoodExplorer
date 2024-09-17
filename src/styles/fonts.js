@@ -15,6 +15,15 @@ export const fonts = {
     line-height: 160%;
     font-size: 2rem;
 `,
+
+  poppinsMedium300: css`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.7rem;
+    line-height: 140%;
+  `,
+
   poppinsMedium400: css`
     font-family: "Poppins", sans-serif;
     font-weight: 500;

@@ -4,9 +4,10 @@ import { Input } from "../../components/input"
 import { Container, SignContent, FormSign, FormCamp } from "./styles"
 import logo_cake from '../../assets/logo_cake.svg'
 import { useTheme } from "styled-components"
+import useMobile from "../../hooks/useMobile"
 export function SignUp(){
     const theme = useTheme();
-
+    const isMobile = useMobile()
     return(
         <Container>
             <SignContent>
@@ -18,6 +19,7 @@ export function SignUp(){
                     corbrand={theme.COLORS.LIGHT_100}
                 />
                 <FormSign>
+                {!isMobile && <h1>Crie sua conta</h1>}
                     <FormCamp>
                         <h3>Email</h3>
                         <Input

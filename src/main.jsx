@@ -9,11 +9,13 @@ import { HeaderDesktop } from './components/header/headerDesktop'
 import { SignUp } from './pages/SignUp'
 import { SignIn } from './pages/SignIn'
 import { CreatePrate } from './pages/CreatePrate'
+import { UpdatePrate } from './pages/UploadPrate'
+import { DetailsPrate } from './pages/DetailsPrate'
 import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <CreatePrate />
+      <DetailsPrate />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,

@@ -1,16 +1,24 @@
 import { Button } from "../../components/button";
+import { ButtonBack } from "../../components/buttonBack";
+import { Footer } from "../../components/footer";
 import { HeaderMobile } from "../../components/header/headerMobile";
 import { Input } from "../../components/input";
+import { InputTags } from "../../components/inputTags";
 import { Label } from "../../components/label";
 import { Textarea } from "../../components/textArea";
-import { Container, ContentForm, FormCamp } from "./styles";
+import { Container, ContentForm, FormCamp, IngredientsCamp } from "./styles";
 import { UploadSimple } from "@phosphor-icons/react";
 export function CreatePrate(){
+    const flag = false
     return(
         <Container>
             <HeaderMobile />
-
+     
             <ContentForm>
+                <ButtonBack
+                    sizearrow={22}
+                    styletext={({ theme }) => theme.fonts.poppinsMedium100}
+                />
                 <h2>Novo Prato</h2>
                     <FormCamp>
                         <Label title="Imagem do prato" />
@@ -20,7 +28,7 @@ export function CreatePrate(){
                             icon={UploadSimple}
                             type="file" id="image-upload" name="image"
                             placeholder="Selecione imagem" 
-                            border="none"
+
                             />
                     
                     </FormCamp>
@@ -42,11 +50,10 @@ export function CreatePrate(){
                     </FormCamp>
                     <FormCamp>
                         <Label title="Ingredientes" />
-                        <Input 
-                            backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
-                            borderradius='8px'
-                            type="text" id="category" name="category"
-                            placeholder="Refeição" />
+                        <IngredientsCamp> 
+                                <InputTags title="Pão Naan" isNew={flag}/>
+                                <InputTags title="Adicionar" isNew={!flag}/>
+                        </IngredientsCamp>
                     </FormCamp>
                     <FormCamp>
                         <Label title="Preço" />
@@ -67,6 +74,8 @@ export function CreatePrate(){
                         text="Salvar alterações"
                     />
             </ContentForm>
+
+            <Footer />
         </Container>
         
     )
