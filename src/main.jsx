@@ -8,12 +8,12 @@ import { Footer } from './components/footer'
 import { HeaderDesktop } from './components/header/headerDesktop'
 import { SignUp } from './pages/SignUp'
 import { SignIn } from './pages/SignIn'
+import { CreatePrate } from './pages/CreatePrate'
 import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <HeaderDesktop />
-      <SignIn />
+      <CreatePrate />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,
