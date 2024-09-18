@@ -11,11 +11,13 @@ import { SignIn } from './pages/SignIn'
 import { CreatePrate } from './pages/CreatePrate'
 import { UpdatePrate } from './pages/UploadPrate'
 import { DetailsPrate } from './pages/DetailsPrate'
+import { Home } from './pages/Home'
+import Carousels from './components/carousels'
 import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <DetailsPrate />
+      <Carousels />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,

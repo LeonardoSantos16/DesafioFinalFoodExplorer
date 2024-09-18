@@ -69,6 +69,7 @@ export const fonts = {
     line-height: 160%;
     font-size: 1.2rem;
   `,
+  
   robotoRegularSmaller: css`
     font-family: "Roboto", sans-serif;
     font-weight: 400;

@@ -7,7 +7,6 @@ import { useTheme } from "styled-components";
 export function Footer(){
     const isMobile = useMobile()
     const theme = useTheme();
-    console.log("Is Mobile:", isMobile); 
     return(
         <Container>
             <FooterContent>

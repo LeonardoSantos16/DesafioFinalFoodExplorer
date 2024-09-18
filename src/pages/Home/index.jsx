@@ -1,15 +1,21 @@
 import { BannerHome } from "../../components/bannerHome";
 import { HeaderMobile } from "../../components/header/headerMobile";
-import { ContainerHome } from "./styles";
-
+import { ContainerHome, SectionProducts } from "./styles";
+import { Card } from "../../components/card";
 export function Home(){
     return(
         <ContainerHome>
-            <HeaderMobile />
-            <BannerHome />
-            <Section>
+            <SectionProducts>
                 Refeições
-            </Section>
+            </SectionProducts>
+
+            <Card 
+                title="Salada Ravanello"
+                price='49,97'
+                description='Delicioso folheado de pêssego com folhas de hortelã.'
+                quantity='2'
+            />
+        
         </ContainerHome>
     )
 }

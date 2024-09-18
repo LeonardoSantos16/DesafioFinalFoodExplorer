@@ -10,3 +10,4 @@
 - tags ingredientes - feito
 - banner home - feito
 - back button  - feito
+- carrosel

@@ -33,4 +33,5 @@ export const ButtonTest = styled.div`
 export const InputHeader = styled.div`
     width: 100%;
     max-width: 58rem;
+    flex: 1;
 `

@@ -11,6 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        background: ${({ theme }) => theme.COLORS.DARK_400}
+      //  background: ${({ theme }) => theme.COLORS.DARK_400}
     }
 `

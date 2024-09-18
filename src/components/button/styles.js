@@ -9,7 +9,7 @@ export const Container = styled.button`
     width: 100%;
     height: ${props => props.height || '4.8rem'};
     border-radius: 5px;
-    padding: 1.2rem 3.2rem;
+    padding: 1.2rem 0rem;
     align-items: center;
     background: ${props => props.background || 'none'};
     border: none;
