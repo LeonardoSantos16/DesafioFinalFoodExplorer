@@ -5,7 +5,6 @@ export const ContainerDetails = styled.div`
     flex-direction: column;
     width: 100%;
     min-width: 42.2rem;
-    height: 100vh;
 `
 
 export const ContentFood = styled.div`

@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
     padding: 2.4rem;
     gap: 1.2rem;
     width: 21rem;
+    min-width: 21rem;
     border: 1px solid #000204;
     border-radius: .8rem;
     color: ${({theme}) => theme.COLORS.LIGHT_100};

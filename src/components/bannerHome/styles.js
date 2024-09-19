@@ -4,18 +4,20 @@ export const ContainerBanner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 37.6rem;
+    max-width: 600rem;
     width: 100%;
     height: 12rem;
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
     border-radius: 2.91696px;
     border: none;
-    margin: 5rem auto 0;
+    margin: 4.4rem auto 0;
     padding: 0 1rem;
 
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
         max-width: 114rem;
         height: 26rem;
+     margin: 16rem auto 0;
+
     }
     > img {
         height: 14.9rem;

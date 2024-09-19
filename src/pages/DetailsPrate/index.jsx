@@ -8,6 +8,7 @@ import { Footer } from "../../components/footer";
 import useTablet from "../../hooks/useTablet";
 import { HeaderMobile } from "../../components/header/headerMobile";
 import {Minus, Plus, Receipt} from "@phosphor-icons/react"
+import { Header } from "../../components/header";
 export function DetailsPrate() {
     // TODO: padronizar o uso do theme em arquivo jsx (definir useTheme ou pelas props)
     const isTablet = useTablet()
@@ -15,8 +16,7 @@ export function DetailsPrate() {
     const iconButton = !isAdmin && isTablet
     return(
         <ContainerDetails>
-
-            {isTablet ? <HeaderMobile/> : <HeaderDesktop /> }
+            <Header />
             <ContentFood>
                 <BackContainer>
                     <ButtonBack

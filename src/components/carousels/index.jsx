@@ -1,21 +1,69 @@
-import React from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ContainerCarousels, CardElement } from './styles';
+import { ContainerCarousels, CardElement, NavButton, GradientCarousels } from './styles';
 import { Card } from '../card';
-
-// Import Swiper styles
+import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
-
-function App() {
+import useMobile from '../../hooks/useMobile';
+export function Carousels({ children }) {
+  const isMobile = useMobile();
+  //TODO: resolver erro do button do swiper com o sombreamento
   return (
     <ContainerCarousels>
+      {!isMobile && <GradientCarousels/>}
       <Swiper
-        spaceBetween={10} // Adjust spacing between slides
-        slidesPerView={3} // Number of slides to show at once
-        pagination={{ clickable: true }} // Add pagination if needed
-        navigation // Add navigation buttons if needed
+        onSwiper={(swiper) => console.log(swiper)}
+        
+        modules={[Navigation]}
+        slidesPerView="3.4" 
+        pagination
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        }}
+        slidesPerGroup={1}
+        breakpoints={{
+
+          400: {
+            slidesPerView:1.7
+          },
+          500:{
+            slidesPerView: 2.4
+          },
+          550:{
+            slidesPerView: 2.7
+          },
+          656:{
+            slidesPerView: 3.4
+          },
+          768: {
+            slidesPerView:2.4,
+          },
+          856: {
+            slidesPerView:3
+          },
+          1100: {
+            slidesPerView:3.4
+          },
+        }}
       >
-        {Array.from({ length: 4 }).map((_, index) => (
+      {React.Children.map(children, (child, index) => (
+          <SwiperSlide key={index}>
+            <CardElement>
+              {child}
+            </CardElement>
+          </SwiperSlide>
+        ))}
+        <NavButton className="swiper-button-next"></NavButton>
+        <NavButton className="swiper-button-prev"></NavButton>
+      </Swiper>
+      
+        
+    </ContainerCarousels>
+  );
+}
+/*
+  {Array.from({ length: 7 }).map((_, index) => (
           <SwiperSlide key={index}>
             <CardElement>
               <Card 
@@ -27,9 +75,4 @@ function App() {
             </CardElement>
           </SwiperSlide>
         ))}
-      </Swiper>
-    </ContainerCarousels>
-  );
-}
-
-export default App;
+          */

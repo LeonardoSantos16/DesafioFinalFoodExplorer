@@ -12,12 +12,12 @@ import { CreatePrate } from './pages/CreatePrate'
 import { UpdatePrate } from './pages/UploadPrate'
 import { DetailsPrate } from './pages/DetailsPrate'
 import { Home } from './pages/Home'
-import Carousels from './components/carousels'
+import {Carousels} from './components/carousels'
 import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <Carousels />
+      <CreatePrate />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,

@@ -11,3 +11,10 @@
 - banner home - feito
 - back button  - feito
 - carrosel
+
+## Páginas
+- Home - feita
+- UpdatePrate - feita
+- DetailsPrate - feita
+- SignIn - feita
+- SignUp - feita

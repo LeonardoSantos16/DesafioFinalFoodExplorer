@@ -1,19 +1,20 @@
 import { Button } from "../../components/button";
 import { ButtonBack } from "../../components/buttonBack";
 import { Footer } from "../../components/footer";
+import { Header } from "../../components/header";
 import { HeaderMobile } from "../../components/header/headerMobile";
 import { Input } from "../../components/input";
 import { InputTags } from "../../components/inputTags";
 import { Label } from "../../components/label";
 import { Textarea } from "../../components/textArea";
-import { Container, ContentForm, FormCamp, IngredientsCamp } from "./styles";
+import { Container, ContentForm, FormCamp, IngredientsCamp, Select } from "./styles";
 import { UploadSimple } from "@phosphor-icons/react";
 export function CreatePrate(){
+    // TODO: arrumar os erros que esta dando no console
     const flag = false
     return(
         <Container>
-            <HeaderMobile />
-     
+            <Header />
             <ContentForm>
                 <ButtonBack
                     sizearrow={22}
@@ -42,11 +43,11 @@ export function CreatePrate(){
                     </FormCamp>
                     <FormCamp>
                         <Label title="Categoria" />
-                        <Input 
-                            backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
-                            borderradius='8px'
-                            type="radio" id="category" name="category"
-                            placeholder="Refeição" />
+                        <Select >
+                                <option value="live">Ao vivo</option>
+                                <option value="podcast">Podcast</option>
+                                <option value="mentorship">Mentoria</option>
+                            </Select>
                     </FormCamp>
                     <FormCamp>
                         <Label title="Ingredientes" />
