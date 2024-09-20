@@ -17,7 +17,7 @@ import './styles/fonts'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <CreatePrate />
+      <UpdatePrate />
       <GlobalStyle />
     </ThemeProvider>
   </StrictMode>,

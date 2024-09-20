@@ -80,7 +80,7 @@ export function UpdatePrate(){
                         <FormCamp>
                             <Label title="Descrição" />
                             <Textarea
-                                placeholder="Fale brevemente sobre o prato, seus ingredientes e composição" 
+                                placeholder="A Salada César é uma opção refrescante para o verão." 
                             />
                         </FormCamp>
           
