@@ -9,17 +9,36 @@ import useTablet from "../../hooks/useTablet";
 import { HeaderMobile } from "../../components/header/headerMobile";
 import { Minus, Plus, Receipt } from "@phosphor-icons/react"
 import { Header } from "../../components/header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+
 export function DetailsPrate() {
     // TODO: padronizar o uso do theme em arquivo jsx (definir useTheme ou pelas props)
+    // TODO: modificação do admin
     const isTablet = useTablet()
     const isAdmin = false
     const iconButton = !isAdmin && isTablet
     const Navigate = useNavigate()
-
+    const params = useParams()
+    const [data, setData] = useState({})
+    const [ingredients, setIngredients] = useState([])
+    const foodIcon = `${api.defaults.baseURL}/files/${data.food_icon}`;
     function handleBack() {
         Navigate(-1);
     }
+
+    useEffect(() => {
+        async function fetchPrate() {
+            console.log("Parâmetros:", params);
+            const response = await api.get(`/food/${params.id}`)
+            setData(response.data)
+            const ingredientNames = response.data.foodIngredient.map(ingredient => ingredient.name);
+            setIngredients(ingredientNames)
+        }
+        fetchPrate();
+    }, [])
+
     return (
         <ContainerDetails>
             <Header />
@@ -31,20 +50,19 @@ export function DetailsPrate() {
                 </BackContainer>
                 <EditContent>
                     <ImageFood>
-                        <img src={salada} alt="prato" />
+                        <img src={foodIcon} alt="prato" />
                     </ImageFood>
                     <InfoFood>
-                        <h1>Salada Ravanello</h1>
+                        <h1>{data.title}</h1>
                         <FoodDescription>
-                            Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
+                            {data.description}
                         </FoodDescription>
                         <FoodTags>
-                            <Tag text="alface" />
-                            <Tag text="cebola" />
-                            <Tag text="pão naan" />
-                            <Tag text="pepino" />
-                            <Tag text="rabanete" />
-                            <Tag text="tomate" />
+
+                            {ingredients.map((ingredient, index) => (
+                                <Tag key={String(index)}
+                                    text={ingredient} />
+                            ))}
                         </FoodTags>
 
                         <ContentOrder>

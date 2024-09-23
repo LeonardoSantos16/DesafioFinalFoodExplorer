@@ -55,7 +55,7 @@ export function CreatePrate() {
             food.food_icon = response.data;
         }
         console.log(food)
-        await api.post("/food", food)
+        await api.post("/food/", food)
         alert("Prato criado com sucesso");
         navigate("/")
     }
