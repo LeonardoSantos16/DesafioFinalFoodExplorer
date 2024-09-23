@@ -1,28 +1,28 @@
-import { Heart, CaretRight, Minus, Plus} from "@phosphor-icons/react"
+import { Heart, CaretRight, Minus, Plus } from "@phosphor-icons/react"
 import { Button } from "../button"
 import salada from '../../assets/salada.png'
 import { CardContainer, FavoriteItem, TitleFood, CardDescription, CardPrice, AddCard, QuantityAdd } from "./styles"
-import useTablet from "../../hooks/useTablet" 
-export function Card({title, price, quantity, image, description}){
+import useTablet from "../../hooks/useTablet"
+export function Card({ title, price, quantity, image, description, ...rest }) {
     const isTablet = useTablet()
-    return(
-        <CardContainer>
+    return (
+        <CardContainer {...rest}>
             <FavoriteItem>
                 <Heart size={22} />
             </FavoriteItem>
-            <img src={salada} alt="imagem prato" />
+            <img src={image} alt="imagem prato" />
             <TitleFood>
-                {title + '>'} 
+                {title + '>'}
             </TitleFood>
             {!isTablet && <CardDescription>{description}</CardDescription>}
             <CardPrice>R$ {price}</CardPrice>
             <AddCard>
                 <QuantityAdd>
-                    <button> <Minus size="27px" color="#ffffff"/>  </button>
+                    <button> <Minus size="27px" color="#ffffff" />  </button>
                     <span>01</span>
-                    <button > <Plus size="27px" color="#ffffff"/> </button>
+                    <button > <Plus size="27px" color="#ffffff" /> </button>
                 </QuantityAdd>
-                <Button 
+                <Button
                     color={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
                     text="incluir"
                 />

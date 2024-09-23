@@ -19,13 +19,17 @@ export function DetailsPrate() {
     const isTablet = useTablet()
     const isAdmin = false
     const iconButton = !isAdmin && isTablet
-    const Navigate = useNavigate()
+    const navigate = useNavigate()
     const params = useParams()
     const [data, setData] = useState({})
     const [ingredients, setIngredients] = useState([])
     const foodIcon = `${api.defaults.baseURL}/files/${data.food_icon}`;
     function handleBack() {
-        Navigate(-1);
+        navigate(-1);
+    }
+
+    function handleNavigatUpdate(id) {
+        navigate(`/update/${id}`)
     }
 
     useEffect(() => {
@@ -73,7 +77,7 @@ export function DetailsPrate() {
                                     <button > <Plus size="27px" color="#ffffff" /> </button>
                                 </QuantityAdd>
                             }
-                            <EditButton>
+                            <EditButton onClick={() => handleNavigatUpdate(params.id)}>
                                 <Button
                                     icon={iconButton ? Receipt : null}
 

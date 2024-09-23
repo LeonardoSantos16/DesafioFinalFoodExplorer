@@ -23,6 +23,6 @@
 - SignIn - feito
 - SignOut Header - feito
 - SignUp - feito
-- DetailsPrate - 
-- UploadPrate - 
-- Home - 
+- DetailsPrate - feito
+- UploadPrate - feito
+- Home - feito

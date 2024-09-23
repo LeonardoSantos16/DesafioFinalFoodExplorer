@@ -6,7 +6,7 @@ import { MagnifyingGlass, Receipt, SignOut } from "@phosphor-icons/react";
 import { Button } from "../../button";
 import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./styles";
 import { useAuth } from "../../../hooks/authContext";
-export function HeaderDesktop() {
+export function HeaderDesktop({ onChange, value }) {
     // TODO: transformar esses valores em pixels para rem
     // ajustar o valor o tamanho do header (definir como 112rem)
     const theme = useTheme();
@@ -29,7 +29,8 @@ export function HeaderDesktop() {
                         icon={MagnifyingGlass}
                         placeholder="Busque por pratos ou ingredientes"
                         backgroundcolor={theme.COLORS.DARK_900}
-
+                        onChange={onChange}
+                        value={value}
                     />
                 </InputHeader>
 

@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-// TODO: mudar os arquivos que estão importando direntamente .fonts para o provider
+// TODO: mudar os arquivos que estão importando diretamente .fonts para o provider
 export const fonts = {
   poppinsMedium100: css`
     font-family: "Poppins", sans-serif;

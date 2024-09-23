@@ -6,10 +6,45 @@ import { Carousels } from "../../components/carousels";
 import { HeaderDesktop } from "../../components/header/headerDesktop";
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
-export function Home(){
-    return(
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
+import useMobile from "../../hooks/useMobile";
+import { useNavigate, useParams } from "react-router-dom";
+
+export function Home() {
+    const [data, setData] = useState([])
+    const [search, setSearch] = useState("");
+    const isMobile = useMobile()
+    const navigate = useNavigate()
+    const params = useParams();
+
+    function handleNavigateDetails(id) {
+        navigate(`/details/${id}`)
+    }
+
+
+    useEffect(() => {
+        async function fetchPrate() {
+            const response = await api.get("/food")
+            setData(response.data)
+        }
+        fetchPrate()
+    }, [])
+
+    useEffect(() => {
+        async function fetchSearch() {
+            const response = await api.get(`/food?query=${search}`)
+            console.log(response.data)
+            setData(response.data)
+            console.log(data)
+        }
+        fetchSearch()
+    }, [search])
+    return (
+
         <ContainerHome>
-            <Header />
+            {isMobile ? <HeaderMobile /> : <HeaderDesktop value={search} onChange={e => setSearch(e.target.value)} />}
+
             <SectionCarousel>
                 <BannerHome />
                 <CarouselContent>
@@ -17,124 +52,66 @@ export function Home(){
                         Refeições
                     </SectionProducts>
                     <Carousels>
-                        <Card 
-                        title="Salada Ravanello"
-                        price='49,97'
-                        description='Delicioso folheado de pêssego com folhas de hortelã.'
-                        quantity='2'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    
+                        {data.filter(prate => prate.category === 'meal').map((prate, index) => (
+                            <Card key={String(index)}
+                                title={prate.title}
+                                price={prate.preco.toFixed(2)}
+                                description={prate.description}
+                                image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
+                                quantity='2'
+                                onClick={() => handleNavigateDetails(prate.id)}
+                            />
+                        ))
+                        }
+
                     </Carousels>
                 </CarouselContent>
-             
+
             </SectionCarousel>
 
             <SectionCarousel>
                 <CarouselContent>
                     <SectionProducts>
-                        Refeições
+                        Sobremesas
                     </SectionProducts>
                     <Carousels>
-                        <Card 
-                        title="Salada Ravanello"
-                        price='49,97'
-                        description='Delicioso folheado de pêssego com folhas de hortelã.'
-                        quantity='2'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    
+                        {data.filter(prate => prate.category === 'dessert').map((prate, index) => (
+                            <Card key={String(index)}
+                                title={prate.title}
+                                price={prate.preco.toFixed(2)}
+                                description={prate.description}
+                                image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
+                                quantity='2'
+                                onClick={() => handleNavigateDetails(prate.id)}
+
+                            />
+                        ))
+                        }
                     </Carousels>
                 </CarouselContent>
-             
+
             </SectionCarousel>
 
             <SectionCarousel>
                 <CarouselContent>
                     <SectionProducts>
-                        Refeições
+                        Bebidas
                     </SectionProducts>
                     <Carousels>
-                        <Card 
-                        title="Salada Ravanello"
-                        price='49,97'
-                        description='Delicioso folheado de pêssego com folhas de hortelã.'
-                        quantity='2'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    <Card 
-                        title="Outro Card"
-                        price='59,97'
-                        description='Uma descrição diferente.'
-                        quantity='1'
-                    />
-                    
+                        {data.filter(prate => prate.category === 'drink').map((prate, index) => (
+                            <Card key={String(index)}
+                                title={prate.title}
+                                price={prate.preco.toFixed(2)}
+                                description={prate.description}
+                                image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
+                                quantity='2'
+                                onClick={() => handleNavigateDetails(prate.id)}
+                            />
+                        ))
+                        }
                     </Carousels>
                 </CarouselContent>
-             
+
             </SectionCarousel>
             <Footer />
         </ContainerHome>

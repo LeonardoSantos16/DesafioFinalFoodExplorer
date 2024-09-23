@@ -29,20 +29,7 @@ export function UpdatePrate() {
     const [imageFood, setImageFood] = useState("");
     const navigate = useNavigate()
     const params = useParams()
-    useEffect(() => {
-        async function fetchPrate() {
-            const response = await api.get(`/food/${params.id}`)
-            setData(response.data)
-            setTitle(response.data.title)
-            setPreco(response.data.preco)
-            setDescription(response.data.description)
-            setCategory(response.data.category)
-            const ingredientNames = response.data.foodIngredient.map(ingredient => ingredient.name);
-            setIngredients(ingredientNames);
-        }
 
-        fetchPrate();
-    }, [params.id])
 
 
     async function handleUpdatePrate() {
@@ -77,6 +64,28 @@ export function UpdatePrate() {
         setIngredients(prevState => [...prevState, newIngredients]);
         console.log(ingredients)
     }
+
+    async function handleDeletePrate() {
+        event.preventDefault()
+        await api.delete(`/food/${params.id}`)
+        alert("prato excluído com sucesso")
+        navigate("/")
+    }
+
+    useEffect(() => {
+        async function fetchPrate() {
+            const response = await api.get(`/food/${params.id}`)
+            setData(response.data)
+            setTitle(response.data.title)
+            setPreco(response.data.preco)
+            setDescription(response.data.description)
+            setCategory(response.data.category)
+            const ingredientNames = response.data.foodIngredient.map(ingredient => ingredient.name);
+            setIngredients(ingredientNames);
+        }
+
+        fetchPrate();
+    }, [params.id])
 
     return (
         <Container>
@@ -162,6 +171,7 @@ export function UpdatePrate() {
                     <Button
                         color={({ theme }) => theme.COLORS.DARK_800}
                         text="Excluir prato"
+                        onClick={handleDeletePrate}
                     />
                     <Button
                         color={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
