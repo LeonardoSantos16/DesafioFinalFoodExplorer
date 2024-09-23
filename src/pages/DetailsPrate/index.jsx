@@ -1,5 +1,5 @@
 import { ButtonBack } from "../../components/buttonBack";
-import { ContainerDetails, ContentFood, ImageFood, InfoFood, EditContent, FoodDescription,FoodTags, BackContainer, EditButton, QuantityAdd, ContentOrder } from "./styles";
+import { ContainerDetails, ContentFood, ImageFood, InfoFood, EditContent, FoodDescription, FoodTags, BackContainer, EditButton, QuantityAdd, ContentOrder } from "./styles";
 import salada from '../../assets/salada.png'
 import { Tag } from "../../components/tag";
 import { Button } from "../../components/button";
@@ -7,20 +7,26 @@ import { HeaderDesktop } from "../../components/header/headerDesktop";
 import { Footer } from "../../components/footer";
 import useTablet from "../../hooks/useTablet";
 import { HeaderMobile } from "../../components/header/headerMobile";
-import {Minus, Plus, Receipt} from "@phosphor-icons/react"
+import { Minus, Plus, Receipt } from "@phosphor-icons/react"
 import { Header } from "../../components/header";
+import { useNavigate } from "react-router-dom";
 export function DetailsPrate() {
     // TODO: padronizar o uso do theme em arquivo jsx (definir useTheme ou pelas props)
     const isTablet = useTablet()
     const isAdmin = false
     const iconButton = !isAdmin && isTablet
-    return(
+    const Navigate = useNavigate()
+
+    function handleBack() {
+        Navigate(-1);
+    }
+    return (
         <ContainerDetails>
             <Header />
             <ContentFood>
                 <BackContainer>
                     <ButtonBack
-                        sizearrow={32} 
+                        sizearrow={32} onClick={handleBack}
                     />
                 </BackContainer>
                 <EditContent>
@@ -42,27 +48,27 @@ export function DetailsPrate() {
                         </FoodTags>
 
                         <ContentOrder>
-                            {!isAdmin && 
+                            {!isAdmin &&
                                 <QuantityAdd>
-                                    <button> <Minus size="27px" color="#ffffff"/>  </button>
+                                    <button> <Minus size="27px" color="#ffffff" />  </button>
                                     <span>01</span>
-                                    <button > <Plus size="27px" color="#ffffff"/> </button>
+                                    <button > <Plus size="27px" color="#ffffff" /> </button>
                                 </QuantityAdd>
                             }
-                                <EditButton>
-                                    <Button
-                                        icon={iconButton ? Receipt : null}
-                                       
-                                        color={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
-                                        text="Editar prato"
-                                    />
-                                </EditButton>
+                            <EditButton>
+                                <Button
+                                    icon={iconButton ? Receipt : null}
+
+                                    color={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
+                                    text="Editar prato"
+                                />
+                            </EditButton>
                             :
-                          
-                            
+
+
                         </ContentOrder>
-                       
-                        
+
+
                     </InfoFood>
                 </EditContent>
             </ContentFood>

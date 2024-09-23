@@ -5,7 +5,6 @@ export const Container = styled.div`
    // justify-content: center;
     width: 100%;
     height: 100vh;
-
 `
 
 export const SignContent = styled.div`
@@ -33,12 +32,11 @@ export const FormSign = styled.form`
     align-items: center;
     gap: 3.2rem;
     width: 31.6rem;
-
+    
     > h1 {
         ${({ theme }) => theme.fonts.poppinsMedium400}
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
-
     > a {
         ${({ theme }) => theme.fonts.poppinsMedium100}
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
@@ -46,6 +44,7 @@ export const FormSign = styled.form`
     }
 
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.desktop}){
+
         background: ${({ theme }) => theme.COLORS.DARK_700};
         width: 100%;
         max-width: 48rem;
@@ -53,7 +52,8 @@ export const FormSign = styled.form`
         padding: 6.4rem;
         border-radius: 1.6rem;
     }
-
+        
+    
 `
 
 export const FormCamp = styled.div`

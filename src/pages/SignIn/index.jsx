@@ -5,10 +5,23 @@ import { Container, SignContent, FormSign, FormCamp } from "./styles"
 import logo_cake from '../../assets/logo_cake.svg'
 import { useTheme } from "styled-components"
 import useMobile from "../../hooks/useMobile"
-export function SignIn(){
+import { useAuth } from "../../hooks/authContext"
+import { Link } from "react-router-dom"
+import { useState } from "react"
+export function SignIn() {
     const theme = useTheme();
     const isMobile = useMobile()
-    return(
+    // TODO: mudar a cor do input e borda
+    // TODO: retirar o event.preventDefault()
+    const { signIn } = useAuth();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleSignIn() {
+        event.preventDefault();
+        signIn({ email, password })
+    }
+    return (
         <Container>
             <SignContent>
                 <Brand
@@ -19,43 +32,39 @@ export function SignIn(){
                     corbrand={theme.COLORS.LIGHT_100}
                 />
                 <FormSign>
-                    {!isMobile && <h1>Crie sua conta</h1>
-                    }
-                    <FormCamp>
-                        <h3>Seu nome</h3>
-                        <Input
-                            backgroundcolor={theme.COLORS.DARK_900}
-                            borderradius="8px"
-                            placeholder="Exemplo: Maria da Silva"
-                        />
-                    </FormCamp>
+                    {!isMobile && <h1>Faça login</h1>}
                     <FormCamp>
                         <h3>Email</h3>
                         <Input
                             backgroundcolor={theme.COLORS.DARK_900}
                             borderradius="8px"
+                            type="email"
                             placeholder="Exemplo: exemplo@exemplo.com.br"
+                            onChange={e => setEmail(e.target.value)}
                         />
                     </FormCamp>
 
                     <FormCamp>
                         <h3>Senha</h3>
-                    <Input
-                         backgroundcolor={theme.COLORS.DARK_900}
-                         borderradius="8px"
-                         placeholder="No mínimo 6 caracteres"
-                    />
+                        <Input
+                            backgroundcolor={theme.COLORS.DARK_900}
+                            borderradius="8px"
+                            type="password"
+                            placeholder="No mínimo 6 caracteres"
+                            onChange={e => setPassword(e.target.value)}
+                        />
                     </FormCamp>
                     <Button
                         color={theme.COLORS.TINTS_TOMATO_100}
-                        text="Criar conta"
+                        text="Entrar"
+                        onClick={handleSignIn}
                     />
 
-                    <a href="/">Já tenho uma conta</a>
+                    <Link to="/register">Criar conta</Link>
                 </FormSign>
-                
+
             </SignContent>
-            
+
 
         </Container>
     )

@@ -18,3 +18,11 @@
 - DetailsPrate - feita
 - SignIn - feita
 - SignUp - feita
+
+## Intregração api e front
+- SignIn - feito
+- SignOut Header - feito
+- SignUp - feito
+- DetailsPrate - 
+- UploadPrate - 
+- Home - 

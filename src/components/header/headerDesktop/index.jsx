@@ -5,11 +5,16 @@ import { Input } from "../../input";
 import { MagnifyingGlass, Receipt, SignOut } from "@phosphor-icons/react";
 import { Button } from "../../button";
 import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./styles";
-export function HeaderDesktop(){
+import { useAuth } from "../../../hooks/authContext";
+export function HeaderDesktop() {
     // TODO: transformar esses valores em pixels para rem
     // ajustar o valor o tamanho do header (definir como 112rem)
     const theme = useTheme();
-    return(
+    const { signOut } = useAuth()
+    function handleSignOut() {
+        signOut()
+    }
+    return (
         <Container>
             <NavHeader>
                 <Brand
@@ -18,32 +23,32 @@ export function HeaderDesktop(){
                     gap='10px'
                     corbrand={theme.COLORS.LIGHT_100}
                     styletext={theme.fonts.robotoBoldBigger} />
-                
+
                 <InputHeader>
                     <Input
-                        icon={ MagnifyingGlass}
+                        icon={MagnifyingGlass}
                         placeholder="Busque por pratos ou ingredientes"
                         backgroundcolor={theme.COLORS.DARK_900}
-                       
+
                     />
                 </InputHeader>
-                
+
                 <ButtonTest>
                     <Button
                         color={theme.COLORS.TINTS_TOMATO_100}
                         icon={Receipt}
                         text='Pedidos (0)'
                         gap='8px'
-                        height="56px" 
-                        
+                        height="56px"
+
                     />
                 </ButtonTest>
-                
-                <ButtonSignOut>
-                    <SignOut size={32}/>
+
+                <ButtonSignOut onClick={handleSignOut}>
+                    <SignOut size={32} />
                 </ButtonSignOut>
             </NavHeader>
-            
+
         </Container>
     )
 }

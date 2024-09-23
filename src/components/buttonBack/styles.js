@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { fonts } from "../../styles/fonts";
 
-export const Container = styled.a`
+export const Container = styled.button`
     display: flex;
     align-items: center;
     gap: .5rem;
