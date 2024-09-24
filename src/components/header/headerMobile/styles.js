@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import theme from "../../../styles/theme";
-import { fonts } from "../../../styles/fonts";
+
 
 export const Container = styled.header`
     display: flex;
@@ -39,7 +39,7 @@ export const BrandHeader = styled.div`
 
 export const AdminUser = styled.span`
     width: 3.4rem;
-    ${fonts.robotoRegularSmallest}
+    ${theme.fonts.robotoRegularSmallest}
     color: ${theme.COLORS.TINTS_CAKE_200}
 `
 

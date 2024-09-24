@@ -81,7 +81,7 @@ export function SignUp() {
                         />
                     </FormCamp>
                     <Button
-                        color={theme.COLORS.TINTS_TOMATO_100}
+                        bgColor={theme.COLORS.TINTS_TOMATO_100}
                         text="Criar conta"
                         onClick={handleSignUp}
                     />

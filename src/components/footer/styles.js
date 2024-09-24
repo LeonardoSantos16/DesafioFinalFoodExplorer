@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { fonts } from "../../styles/fonts";
+
 import theme from "../../styles/theme";
 
 export const Container = styled.footer`
@@ -31,7 +31,7 @@ export const Copyright = styled.p`
     align-items: center;
     color: ${theme.COLORS.LIGHT_200};
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
-        ${fonts.robotoRegularSmaller}
+        ${theme.fonts.robotoRegularSmaller}
     }
     
 `

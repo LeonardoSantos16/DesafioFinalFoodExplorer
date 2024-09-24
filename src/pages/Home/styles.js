@@ -5,7 +5,6 @@ export const ContainerHome = styled.div`
     flex-direction: column;
     align-items: center;
     min-width: 42.2rem;
-
 `
 
 export const SectionProducts = styled.h2`
@@ -28,5 +27,12 @@ export const SectionCarousel = styled.div`
     max-width: 114rem;
     margin: 0 auto;
     padding: 0 1rem;
+`
 
+export const CarouseulContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-bottom: 4.8rem;
+    width: 100%;
 `

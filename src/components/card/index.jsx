@@ -1,6 +1,5 @@
-import { Heart, CaretRight, Minus, Plus } from "@phosphor-icons/react"
+import { Heart, Minus, Plus } from "@phosphor-icons/react"
 import { Button } from "../button"
-import salada from '../../assets/salada.png'
 import { CardContainer, FavoriteItem, TitleFood, CardDescription, CardPrice, AddCard, QuantityAdd } from "./styles"
 import useTablet from "../../hooks/useTablet"
 export function Card({ title, price, quantity, image, description, ...rest }) {
@@ -23,7 +22,7 @@ export function Card({ title, price, quantity, image, description, ...rest }) {
                     <button > <Plus size="27px" color="#ffffff" /> </button>
                 </QuantityAdd>
                 <Button
-                    color={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
+                    bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
                     text="incluir"
                 />
             </AddCard>

@@ -12,7 +12,6 @@ import { DetailsPrate } from './pages/DetailsPrate'
 import { Home } from './pages/Home'
 import { Carousels } from './components/carousels'
 import { Routes } from './routes'
-import './styles/fonts'
 import { AuthenticatorProvider } from './hooks/authContext'
 createRoot(document.getElementById('root')).render(
   <StrictMode>

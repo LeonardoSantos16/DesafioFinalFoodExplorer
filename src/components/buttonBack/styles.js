@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { fonts } from "../../styles/fonts";
 
 export const Container = styled.button`
     display: flex;
@@ -13,9 +12,9 @@ export const Container = styled.button`
     text-decoration: none;
     > span {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        ${fonts.poppinsMedium100}
+        ${({ theme }) => theme.fonts.poppinsMedium100}
         @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
-            ${fonts.poppinsBold300}
+            ${({ theme }) => theme.fonts.poppinsBold300}
         }
     }
 `

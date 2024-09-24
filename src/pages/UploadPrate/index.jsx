@@ -21,7 +21,7 @@ export function UpdatePrate() {
     const flag = false
     const [data, setData] = useState(null);
     const [title, setTitle] = useState('')
-    const [preco, setPreco] = useState(0)
+    const [price, setPrice] = useState(0)
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('')
     const [ingredients, setIngredients] = useState([])
@@ -38,7 +38,7 @@ export function UpdatePrate() {
             title,
             category,
             description,
-            preco,
+            price,
             ingredients,
         }
         if (imageFood) {
@@ -77,7 +77,7 @@ export function UpdatePrate() {
             const response = await api.get(`/food/${params.id}`)
             setData(response.data)
             setTitle(response.data.title)
-            setPreco(response.data.preco)
+            setPrice(response.data.price)
             setDescription(response.data.description)
             setCategory(response.data.category)
             const ingredientNames = response.data.foodIngredient.map(ingredient => ingredient.name);
@@ -151,8 +151,8 @@ export function UpdatePrate() {
                             borderradius='8px'
                             type="number" id="price" name="price"
                             placeholder="R$ 00,00" label="tddddext"
-                            value={preco}
-                            onChange={e => setPreco(e.target.value)}
+                            value={price}
+                            onChange={e => setPrice(e.target.value)}
                         />
 
                     </FormCamp>
@@ -169,12 +169,12 @@ export function UpdatePrate() {
 
                 <UploadButtons>
                     <Button
-                        color={({ theme }) => theme.COLORS.DARK_800}
+                        bgColor={({ theme }) => theme.COLORS.DARK_800}
                         text="Excluir prato"
                         onClick={handleDeletePrate}
                     />
                     <Button
-                        color={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
+                        bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
                         text="Salvar alterações"
                         onClick={handleUpdatePrate}
                     />

@@ -6,13 +6,19 @@ import { MagnifyingGlass, Receipt, SignOut } from "@phosphor-icons/react";
 import { Button } from "../../button";
 import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./styles";
 import { useAuth } from "../../../hooks/authContext";
+import { useNavigate } from "react-router-dom";
 export function HeaderDesktop({ onChange, value }) {
     // TODO: transformar esses valores em pixels para rem
     // ajustar o valor o tamanho do header (definir como 112rem)
+    const navigate = useNavigate();
     const theme = useTheme();
     const { signOut } = useAuth()
     function handleSignOut() {
         signOut()
+    }
+    function handleNewPrate() {
+        event.preventDefault()
+        navigate('/new')
     }
     return (
         <Container>
@@ -34,12 +40,12 @@ export function HeaderDesktop({ onChange, value }) {
                     />
                 </InputHeader>
 
-                <ButtonTest>
+                <ButtonTest onClick={handleNewPrate}>
                     <Button
-                        color={theme.COLORS.TINTS_TOMATO_100}
+                        bgColor={theme.COLORS.TINTS_TOMATO_100}
                         icon={Receipt}
                         text='Pedidos (0)'
-                        gap='8px'
+                        $gap='8px'
                         height="56px"
 
                     />

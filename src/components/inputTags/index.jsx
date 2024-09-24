@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { Plus, X } from "@phosphor-icons/react";
 export function InputTags({ isNew, title, onClick, ...rest }) {
     return (
-        <Container isNew={isNew}>
+        <Container $isNew={isNew}>
             <input
                 type="text"
                 value={title}

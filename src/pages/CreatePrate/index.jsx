@@ -20,7 +20,7 @@ export function CreatePrate() {
     // TODO: alterar o nome da coluna preco para price no front e back end
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
-    const [preco, setPreco] = useState(0);
+    const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [imageFood, setImageFood] = useState("");
     const [newIngredients, setNewIngredients] = useState("");
@@ -44,7 +44,7 @@ export function CreatePrate() {
             title,
             category,
             description,
-            preco,
+            price,
             ingredients,
         }
         if (imageFood) {
@@ -126,10 +126,10 @@ export function CreatePrate() {
                         <Input
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
                             borderradius='8px'
-                            type="number" id="preco" name="preco"
+                            type="number" id="price" name="price"
                             placeholder="R$ 00,00" label="tddddext"
-                            value={preco}
-                            onChange={e => setPreco(e.target.value)}
+                            value={price}
+                            onChange={e => setPrice(e.target.value)}
                         />
 
 
@@ -148,11 +148,7 @@ export function CreatePrate() {
 
                 <UploadButtons>
                     <Button
-                        color={({ theme }) => theme.COLORS.DARK_800}
-                        text="Excluir prato"
-                    />
-                    <Button
-                        color={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
+                        bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
                         text="Salvar alterações"
                         onClick={handleCreatePrate}
                     />

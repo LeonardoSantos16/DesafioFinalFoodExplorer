@@ -19,7 +19,7 @@ export const ContentForm = styled.form`
     width: 100%;
     margin: 0 auto;
     margin-bottom: 5rem;
-  
+    
     > h2{
         ${({ theme }) => theme.fonts.poppinsMedium400}
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
@@ -54,6 +54,10 @@ export const UploadButtons = styled.div`
     display: flex;
     gap: 3.2rem;
     width: 100%;
+    align-self: flex-end;
+    @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
+        width: 17.2rem;
+    }
 `
 
 export const InputContent = styled.div`

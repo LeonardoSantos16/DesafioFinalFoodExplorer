@@ -34,7 +34,6 @@ export function DetailsPrate() {
 
     useEffect(() => {
         async function fetchPrate() {
-            console.log("Parâmetros:", params);
             const response = await api.get(`/food/${params.id}`)
             setData(response.data)
             const ingredientNames = response.data.foodIngredient.map(ingredient => ingredient.name);
@@ -81,7 +80,7 @@ export function DetailsPrate() {
                                 <Button
                                     icon={iconButton ? Receipt : null}
 
-                                    color={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
+                                    bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
                                     text="Editar prato"
                                 />
                             </EditButton>

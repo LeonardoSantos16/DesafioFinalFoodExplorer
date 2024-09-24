@@ -55,7 +55,7 @@ export function SignIn() {
                         />
                     </FormCamp>
                     <Button
-                        color={theme.COLORS.TINTS_TOMATO_100}
+                        bgColor={theme.COLORS.TINTS_TOMATO_100}
                         text="Entrar"
                         onClick={handleSignIn}
                     />

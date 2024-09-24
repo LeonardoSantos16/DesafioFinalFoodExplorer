@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ContainerCarousels, CardElement, GradientCarousels } from './styles';
-import { Card } from '../card';
+import { ContainerCarousels, CardElement, ContainerGrandients, GradientCarouselsDois, GradientCarousels } from './styles';
 import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import useMobile from '../../hooks/useMobile';
@@ -10,16 +9,19 @@ export function Carousels({ children }) {
   //TODO: resolver erro do button do swiper com o sombreamento
   return (
     <ContainerCarousels>
-      {!isMobile && <GradientCarousels />}
+      <ContainerGrandients>
+        {!isMobile && <GradientCarousels />}
+        {!isMobile && <GradientCarouselsDois />}
+      </ContainerGrandients>
+
       <Swiper
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={(swiper) => swiper}
 
         modules={[Navigation]}
         slidesPerView="3.4"
 
-
         pagination
-        navigation
+        navigation={isMobile ? undefined : {}}
         slidesPerGroup={1}
         breakpoints={{
 
@@ -55,7 +57,6 @@ export function Carousels({ children }) {
         ))}
 
       </Swiper>
-
 
     </ContainerCarousels>
   );
