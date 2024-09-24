@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ContainerCarousels, CardElement, NavButton, GradientCarousels } from './styles';
+import { ContainerCarousels, CardElement, GradientCarousels } from './styles';
 import { Card } from '../card';
 import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
@@ -10,55 +10,53 @@ export function Carousels({ children }) {
   //TODO: resolver erro do button do swiper com o sombreamento
   return (
     <ContainerCarousels>
-      {!isMobile && <GradientCarousels/>}
+      {!isMobile && <GradientCarousels />}
       <Swiper
         onSwiper={(swiper) => console.log(swiper)}
-        
+
         modules={[Navigation]}
-        slidesPerView="3.4" 
+        slidesPerView="3.4"
+
+
         pagination
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
+        navigation
         slidesPerGroup={1}
         breakpoints={{
 
           400: {
-            slidesPerView:1.7
+            slidesPerView: 1.7
           },
-          500:{
+          500: {
             slidesPerView: 2.4
           },
-          550:{
+          550: {
             slidesPerView: 2.7
           },
-          656:{
+          656: {
             slidesPerView: 3.4
           },
           768: {
-            slidesPerView:2.4,
+            slidesPerView: 2.4,
           },
           856: {
-            slidesPerView:3
+            slidesPerView: 3
           },
           1100: {
-            slidesPerView:3.4
+            slidesPerView: 3.4
           },
         }}
       >
-      {React.Children.map(children, (child, index) => (
+        {React.Children.map(children, (child, index) => (
           <SwiperSlide key={index}>
             <CardElement>
               {child}
             </CardElement>
           </SwiperSlide>
         ))}
-        <NavButton className="swiper-button-next"></NavButton>
-        <NavButton className="swiper-button-prev"></NavButton>
+
       </Swiper>
-      
-        
+
+
     </ContainerCarousels>
   );
 }
