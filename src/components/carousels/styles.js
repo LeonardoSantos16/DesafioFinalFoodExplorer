@@ -1,4 +1,36 @@
 import styled from "styled-components";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+export const SwiperContent = styled(Swiper)`
+  position: relative;
+  overflow: hidden; 
+
+  .swiper-wrapper {
+    overflow: visible; 
+  }
+
+  .gradient-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29rem;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none; 
+    z-index: 2;
+  }
+
+  .gradient-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 29rem;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+`;
 
 export const ContainerCarousels = styled.div`
   width: 100%;
@@ -11,40 +43,6 @@ export const ContainerCarousels = styled.div`
     padding: 0;
   }
 `;
-
-export const GradientCarousels = styled.div`
-    width: 29rem;
-    height: 44.8rem;
-    z-index: 2;
-    background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    overflow: hidden;
-    pointer-events: none;
-    display: flex;
-`
-
-export const GradientCarouselsDois = styled.div`
-    width: 29rem;
-    height: 44.8rem;
-    z-index: 2;
-    background: linear-gradient(90deg, rgba(0, 10, 15, 0.272541) 0%, #000A0F 100%);
-    overflow: hidden;
-    display: flex;
-`
-
-export const ContainerGrandients = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 112rem;
-  height: 46rem;
-  position: absolute;
-  z-index: 4;
-  pointer-events: none;
-  
-`
-
-
 
 export const CardElement = styled.div`
   display: flex; 

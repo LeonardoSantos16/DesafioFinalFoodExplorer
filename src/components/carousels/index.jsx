@@ -1,27 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { ContainerCarousels, CardElement, ContainerGrandients, GradientCarouselsDois, GradientCarousels } from './styles';
-import { Navigation } from 'swiper/modules';
+import React from 'react';
+import { SwiperSlide } from 'swiper/react';
+import { ContainerCarousels, CardElement, SwiperContent } from './styles';
+import { Navigation, FreeMode } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import useMobile from '../../hooks/useMobile';
 export function Carousels({ children }) {
   const isMobile = useMobile();
-  //TODO: resolver erro do button do swiper com o sombreamento
+ 
   return (
     <ContainerCarousels>
-      <ContainerGrandients>
-        {!isMobile && <GradientCarousels />}
-        {!isMobile && <GradientCarouselsDois />}
-      </ContainerGrandients>
-
-      <Swiper
+      <SwiperContent
+         key={isMobile ? 'mobile' : 'desktop'}
         onSwiper={(swiper) => swiper}
-
-        modules={[Navigation]}
+        modules={[Navigation, FreeMode]}
         slidesPerView="3.4"
-
+        freeMode={isMobile}
         pagination
-        navigation={isMobile ? undefined : {}}
+        navigation={!isMobile}
         slidesPerGroup={1}
         breakpoints={{
 
@@ -48,6 +43,9 @@ export function Carousels({ children }) {
           },
         }}
       >
+        {!isMobile && <> <div className="gradient-left" />
+         <div className="gradient-right" /> </>
+        }
         {React.Children.map(children, (child, index) => (
           <SwiperSlide key={index}>
             <CardElement>
@@ -56,22 +54,8 @@ export function Carousels({ children }) {
           </SwiperSlide>
         ))}
 
-      </Swiper>
+      </SwiperContent>
 
     </ContainerCarousels>
   );
 }
-/*
-  {Array.from({ length: 7 }).map((_, index) => (
-          <SwiperSlide key={index}>
-            <CardElement>
-              <Card 
-                title="Salada Ravanello"
-                price='49,97'
-                description='Delicioso folheado de pêssego com folhas de hortelã.'
-                quantity='2'
-              />
-            </CardElement>
-          </SwiperSlide>
-        ))}
-          */

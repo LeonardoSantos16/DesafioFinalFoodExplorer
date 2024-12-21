@@ -1,119 +1,90 @@
 import { BannerHome } from "../../components/bannerHome";
 import { HeaderMobile } from "../../components/header/headerMobile";
-import { ContainerHome, SectionProducts, CarouselContent, SectionCarousel, CarouseulContainer } from "./styles";
-import { Card } from "../../components/card";
-import { Carousels } from "../../components/carousels";
 import { HeaderDesktop } from "../../components/header/headerDesktop";
 import { Footer } from "../../components/footer";
-import { Header } from "../../components/header";
-import { useEffect, useState } from "react";
+import { Carousels } from "../../components/carousels";
+import { Card } from "../../components/card";
+import {
+  ContainerHome,
+  SectionProducts,
+  CarouselContent,
+  SectionCarousel,
+  CarouseulContainer,
+} from "./styles";
 import { api } from "../../services/api";
 import useMobile from "../../hooks/useMobile";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export function Home() {
-    const [data, setData] = useState([])
-    const [search, setSearch] = useState("");
-    const isMobile = useMobile()
-    const navigate = useNavigate()
-    const params = useParams();
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const isMobile = useMobile();
+  const navigate = useNavigate();
 
-    function handleNavigateDetails(id) {
-        navigate(`/details/${id}`)
-    }
+  const handleNavigateDetails = (id) => {
+    navigate(`/details/${id}`);
+  };
 
+  const fetchPrate = async () => {
+    const response = await api.get("/food");
+    setData(response.data);
+  };
 
-    useEffect(() => {
-        async function fetchPrate() {
-            const response = await api.get("/food")
-            setData(response.data)
-        }
-        fetchPrate()
-    }, [])
+  const fetchSearch = async () => {
+    const response = await api.get(`/food?query=${search}`);
+    setData(response.data);
+  };
 
-    useEffect(() => {
-        async function fetchSearch() {
-            const response = await api.get(`/food?query=${search}`)
-            setData(response.data)
-        }
-        fetchSearch()
-    }, [search])
-    return (
+  useEffect(() => {
+    fetchPrate();
+  }, []);
 
-        <ContainerHome>
-            {isMobile ? <HeaderMobile /> : <HeaderDesktop value={search} onChange={e => setSearch(e.target.value)} />}
-            <CarouseulContainer>
-                <SectionCarousel>
-                    <BannerHome />
-                    <CarouselContent>
-                        <SectionProducts>
-                            Refeições
-                        </SectionProducts>
-                        <Carousels>
-                            {data.filter(prate => prate.category === 'meal').map((prate, index) => (
-                                <Card key={String(index)}
-                                    title={prate.title}
-                                    price={prate.price.toFixed(2)}
-                                    description={prate.description}
-                                    image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
-                                    quantity='2'
-                                    onClick={() => handleNavigateDetails(prate.id)}
-                                />
-                            ))
-                            }
+  useEffect(() => {
+    fetchSearch();
+  }, [search]);
+console.log(data)
+  const renderCategoryCarousel = (category, title) => {
+    if (!data.find((item) => item.category === category)) return null;
+    return(
+    <SectionCarousel>
+      <CarouselContent>
+        <SectionProducts>{title}</SectionProducts>
+        <Carousels>
+          {data
+            .filter((item) => item.category === category)
+            .map((item, index) => (
+              <Card
+                key={item.id || index}
+                title={item.title}
+                price={item.price.toFixed(2)}
+                description={item.description}
+                image={`${api.defaults.baseURL}/files/${item.food_icon}`}
+                quantity="2"
+                onClick={() => handleNavigateDetails(item.id)}
+              />
+            ))}
+        </Carousels>
+      </CarouselContent>
+    </SectionCarousel>
+  );
+  }
+  return (
+    <ContainerHome>
+      {isMobile ? (
+        <HeaderMobile />
+      ) : (
+        <HeaderDesktop value={search} onChange={(e) => setSearch(e.target.value)} />
+      )}
 
-                        </Carousels>
-                    </CarouselContent>
+      <CarouseulContainer>
+        <BannerHome />
+        {renderCategoryCarousel("meal", "Refeições")}
+        {renderCategoryCarousel("dessert", "Sobremesas")}
+        {renderCategoryCarousel("drink", "Bebidas")}
+      </CarouseulContainer>
 
-                </SectionCarousel>
-
-                <SectionCarousel>
-                    <CarouselContent>
-                        <SectionProducts>
-                            Sobremesas
-                        </SectionProducts>
-                        <Carousels>
-                            {data.filter(prate => prate.category === 'dessert').map((prate, index) => (
-                                <Card key={String(index)}
-                                    title={prate.title}
-                                    price={prate.price.toFixed(2)}
-                                    description={prate.description}
-                                    image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
-                                    quantity='2'
-                                    onClick={() => handleNavigateDetails(prate.id)}
-
-                                />
-                            ))
-                            }
-                        </Carousels>
-                    </CarouselContent>
-
-                </SectionCarousel>
-
-                <SectionCarousel>
-                    <CarouselContent>
-                        <SectionProducts>
-                            Bebidas
-                        </SectionProducts>
-                        <Carousels>
-                            {data.filter(prate => prate.category === 'drink').map((prate, index) => (
-                                <Card key={String(index)}
-                                    title={prate.title}
-                                    price={prate.price.toFixed(2)}
-                                    description={prate.description}
-                                    image={`${api.defaults.baseURL}/files/${prate.food_icon}`}
-                                    quantity='2'
-                                    onClick={() => handleNavigateDetails(prate.id)}
-                                />
-                            ))
-                            }
-                        </Carousels>
-                    </CarouselContent>
-
-                </SectionCarousel>
-            </CarouseulContainer>
-
-            <Footer />
-        </ContainerHome>
-    )
+      <Footer />
+    </ContainerHome>
+  );
 }

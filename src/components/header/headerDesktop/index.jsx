@@ -8,7 +8,6 @@ import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./
 import { useAuth } from "../../../hooks/authContext";
 import { useNavigate } from "react-router-dom";
 export function HeaderDesktop({ onChange, value }) {
-    // TODO: transformar esses valores em pixels para rem
     // ajustar o valor o tamanho do header (definir como 112rem)
     const navigate = useNavigate();
     const theme = useTheme();

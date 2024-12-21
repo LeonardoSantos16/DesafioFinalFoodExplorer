@@ -6,7 +6,6 @@ import { Container, MenuHeader, MenuButton, BrandHeader, AdminUser } from './sty
 import { useTheme } from "styled-components";
 
 export function HeaderMobile() {
-    // TODO: refatorar o color #ffffff para a propriedade LIGHT_100 do theme
     // TODO: depois da integração com a api criar a lógica para mostrar o componente AdminUser apenas quando for um usuário admin
     const isMobile = useMobile()
     const theme = useTheme();
