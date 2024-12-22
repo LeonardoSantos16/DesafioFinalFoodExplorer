@@ -4,7 +4,7 @@ import logo from '../../../assets/logo_cake.svg'
 import { Input } from "../../input";
 import { MagnifyingGlass, Receipt, SignOut } from "@phosphor-icons/react";
 import { Button } from "../../button";
-import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./styles";
+import { Container, NavHeader, ButtonSignOut, ContentIsAdmin, InputHeader } from "./styles";
 import { useAuth } from "../../../hooks/authContext";
 import { useNavigate } from "react-router-dom";
 export function HeaderDesktop({ onChange, value }) {
@@ -19,7 +19,7 @@ export function HeaderDesktop({ onChange, value }) {
     function handleNewPrate() {
         navigate('/new')
     }
-    
+
     const ButtonHeader = ({ isAdmin }) => { 
         if (isAdmin) {
             return (
@@ -65,9 +65,9 @@ export function HeaderDesktop({ onChange, value }) {
                         color='ffffff'
                     />
                 </InputHeader>
-                <ButtonTest>
-                 <ButtonHeader isAdmin={isAdmin} />
-                    </ButtonTest> 
+                <ContentIsAdmin>
+                    <ButtonHeader isAdmin={isAdmin} />
+                </ContentIsAdmin> 
                 
 
                 <ButtonSignOut onClick={handleSignOut}>

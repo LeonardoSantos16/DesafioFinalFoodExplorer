@@ -30,7 +30,7 @@ export const ButtonSignOut = styled.button`
     height: 3.2rem;
 `
 
-export const ButtonTest = styled.div`
+export const ContentIsAdmin = styled.div`
     max-width: 21.6rem;
     width: 100%;
 `
