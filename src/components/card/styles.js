@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
+    position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -14,6 +15,7 @@ export const CardContainer = styled.div`
     border-radius: .8rem;
     color: ${({theme}) => theme.COLORS.LIGHT_100};
     background-color: ${({theme}) => theme.COLORS.DARK_200};;
+    min-height: 29.2rem;
     > img {
         margin-top: -2.5rem;
         width: 8.8rem;
@@ -33,12 +35,14 @@ export const CardContainer = styled.div`
 `
 
 export const FavoriteItem = styled.div`
+    position: absolute;
     display: flex;
     justify-content: flex-end;
     width: 110%;
     padding-top: -1rem;
     padding-bottom: -.8rem;
-    
+    top: 16px;
+    right: 18px;
     align-items: flex-end;
     
 `

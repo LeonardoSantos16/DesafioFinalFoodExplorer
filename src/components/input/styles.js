@@ -15,10 +15,22 @@ export const Container = styled.div`
         ${({theme}) => theme.fonts.robotoRegularSmall};
         color: ${({theme}) => theme.COLORS.LIGHT_500};
         background: none;
-        width: 100%;
+        border: none;
+        outline: none;
+        width: ${(props) => props.$width || "100%"}; 
+
+
     }
     > input[type="file"]::-webkit-file-upload-button {
-            visibility: hidden; /* Esconde o botão padrão */
+            visibility: hidden; 
     }
 
+`
+
+export const Inputs = styled.input`
+     ${({theme}) => theme.fonts.robotoRegularSmall};
+    color: ${({theme}) => theme.COLORS.LIGHT_500};
+    background: none;
+    border: none;
+    outline: none;
 `

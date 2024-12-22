@@ -6,11 +6,13 @@ export const myContext = createContext({});
 
 function AuthenticatorProvider({ children }) {
     const [data, setData] = useState({});
-
+    const [isAdmin, setIsAdmin] = useState();
+    console.log(data)
     async function signIn({ email, password }) {
         try {
             const response = await api.post("/sessions", { email, password }, { withCredentials: true });
             const { user } = response.data;
+            setIsAdmin(user.role == 'admin')
             localStorage.setItem("@desafiofinal:user", JSON.stringify(user));
 
             setData({ user });
@@ -27,20 +29,19 @@ function AuthenticatorProvider({ children }) {
         localStorage.removeItem('@desafiofinal:user');
         setData({});
     }
-
+  
 
     useEffect(() => {
         const user = localStorage.getItem("@desafiofinal:user");
-
         if (user) {
-            setData({
-                user: JSON.parse(user)
-            })
+            const parsedUser = JSON.parse(user);
+            setData({ user: parsedUser });
+            setIsAdmin(parsedUser.role === 'admin'); 
         }
-    }, [])
+    }, []);
 
     return (
-        <myContext.Provider value={{ signIn, signOut, user: data.user }}>
+        <myContext.Provider value={{ signIn, signOut, user: data.user, isAdmin }}>
             {children} { }
         </myContext.Provider>
     );

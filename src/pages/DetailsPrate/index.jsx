@@ -1,5 +1,5 @@
 import { ButtonBack } from "../../components/buttonBack";
-import { ContainerDetails, ContentFood, ImageFood, InfoFood, EditContent, FoodDescription, FoodTags, BackContainer, EditButton, QuantityAdd, ContentOrder } from "./styles";
+import { ContainerDetails, ContentFood, ImageFood, InfoFood, EditContent, FoodDescription, FoodTags, BackContainer, EditButton, QuantityAdd, ContentOrder, IncludeContainer } from "./styles";
 import salada from '../../assets/salada.png'
 import { Tag } from "../../components/tag";
 import { Button } from "../../components/button";
@@ -12,13 +12,12 @@ import { Header } from "../../components/header";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
-
+import { useAuth } from "../../hooks/authContext";
 export function DetailsPrate() {
-    // TODO: padronizar o uso do theme em arquivo jsx (definir useTheme ou pelas props)
-    // TODO: modificação do admin
+    // TODO: colocar o preco real no ButtonCustomer
     const isTablet = useTablet()
-    const isAdmin = false
-    const iconButton = !isAdmin && isTablet
+
+    const isAdmin = useAuth()
     const navigate = useNavigate()
     const params = useParams()
     const [data, setData] = useState({})
@@ -30,6 +29,36 @@ export function DetailsPrate() {
 
     function handleNavigatUpdate(id) {
         navigate(`/update/${id}`)
+    }
+
+    const ButtonsCustomer = () => {
+        return(
+            <>
+                <QuantityAdd>
+                    <button> <Minus size="27px" color="#ffffff" />  </button>
+                    <span>01</span>
+                    <button > <Plus size="27px" color="#ffffff" /> </button>
+                </QuantityAdd>
+                <IncludeContainer>
+                    <Button 
+                        icon={isTablet ? Receipt : null}
+                        bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
+                        text={isTablet ? 'pedir ∙ R$ 25,00' : 'incluir ∙ R$ 25,00'}
+                    />
+                </IncludeContainer>
+            </>
+        )
+    }
+
+    const ButtonAdmin = () => {
+        return(
+        <EditButton onClick={() => handleNavigatUpdate(params.id)}>
+            <Button
+                bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
+                text="Editar prato"
+                />
+        </EditButton>
+        )
     }
 
     useEffect(() => {
@@ -69,27 +98,12 @@ export function DetailsPrate() {
                         </FoodTags>
 
                         <ContentOrder>
-                            {!isAdmin &&
-                                <QuantityAdd>
-                                    <button> <Minus size="27px" color="#ffffff" />  </button>
-                                    <span>01</span>
-                                    <button > <Plus size="27px" color="#ffffff" /> </button>
-                                </QuantityAdd>
+                            {isAdmin ?
+                                <ButtonAdmin />
+                                :
+                                <ButtonsCustomer />
                             }
-                            <EditButton onClick={() => handleNavigatUpdate(params.id)}>
-                                <Button
-                                    icon={iconButton ? Receipt : null}
-
-                                    bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_100}
-                                    text="Editar prato"
-                                />
-                            </EditButton>
-                            :
-
-
                         </ContentOrder>
-
-
                     </InfoFood>
                 </EditContent>
             </ContentFood>

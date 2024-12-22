@@ -13,7 +13,7 @@ export function Carousels({ children }) {
          key={isMobile ? 'mobile' : 'desktop'}
         onSwiper={(swiper) => swiper}
         modules={[Navigation, FreeMode]}
-        slidesPerView="3.4"
+        slidesPerView="1.7"
         freeMode={isMobile}
         pagination
         navigation={!isMobile}

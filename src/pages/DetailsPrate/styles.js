@@ -144,3 +144,10 @@ export const ContentOrder = styled.div`
         gap: 3.3rem;
     }
 `
+
+export const IncludeContainer = styled.div`
+    width: 18.8rem;
+    @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
+        width: 16.2rem;
+    }
+`

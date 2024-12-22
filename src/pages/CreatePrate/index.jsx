@@ -17,7 +17,6 @@ export function CreatePrate() {
     const isMobile = useMobile()
     const flag = false
     // TODO: ajustar o tamanho dos input
-    // TODO: alterar o nome da coluna preco para price no front e back end
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState(0);

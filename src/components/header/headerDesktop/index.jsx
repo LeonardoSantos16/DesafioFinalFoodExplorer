@@ -8,17 +8,42 @@ import { Container, NavHeader, ButtonSignOut, ButtonTest, InputHeader } from "./
 import { useAuth } from "../../../hooks/authContext";
 import { useNavigate } from "react-router-dom";
 export function HeaderDesktop({ onChange, value }) {
-    // ajustar o valor o tamanho do header (definir como 112rem)
     const navigate = useNavigate();
     const theme = useTheme();
-    const { signOut } = useAuth()
+    const { signOut, isAdmin } = useAuth()
+
     function handleSignOut() {
         signOut()
     }
+
     function handleNewPrate() {
-        event.preventDefault()
         navigate('/new')
     }
+    console.log(isAdmin)
+    const ButtonHeader = ({ isAdmin }) => {  // Alterar de 'isAdmin' para 'isAdmin'
+        if (isAdmin) {
+            return (
+                <Button
+                    onClick={handleNewPrate}
+                    bgColor={theme.COLORS.TINTS_TOMATO_100}
+                    text='Novo prato'
+                    $gap='8px'
+                    height="56px"
+                />
+            );
+        } else {
+            return (
+                <Button
+                    bgColor={theme.COLORS.TINTS_TOMATO_100}
+                    icon={Receipt}
+                    text='Pedidos (0)'
+                    $gap='8px'
+                    height="56px"
+                />
+            );
+        }
+    };
+
     return (
         <Container>
             <NavHeader>
@@ -36,19 +61,14 @@ export function HeaderDesktop({ onChange, value }) {
                         backgroundcolor={theme.COLORS.DARK_900}
                         onChange={onChange}
                         value={value}
+                        width='250px'
+                        color='ffffff'
                     />
                 </InputHeader>
-
-                <ButtonTest onClick={handleNewPrate}>
-                    <Button
-                        bgColor={theme.COLORS.TINTS_TOMATO_100}
-                        icon={Receipt}
-                        text='Pedidos (0)'
-                        $gap='8px'
-                        height="56px"
-
-                    />
-                </ButtonTest>
+                <ButtonTest>
+                 <ButtonHeader isAdmin={isAdmin} />
+                    </ButtonTest> 
+                
 
                 <ButtonSignOut onClick={handleSignOut}>
                     <SignOut size={32} />

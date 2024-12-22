@@ -4,6 +4,7 @@ import { HeaderDesktop } from "../../components/header/headerDesktop";
 import { Footer } from "../../components/footer";
 import { Carousels } from "../../components/carousels";
 import { Card } from "../../components/card";
+import { useAuth } from "../../hooks/authContext";
 import {
   ContainerHome,
   SectionProducts,
@@ -21,7 +22,7 @@ export function Home() {
   const [search, setSearch] = useState("");
   const isMobile = useMobile();
   const navigate = useNavigate();
-
+  const {isAdmin} = useAuth()
   const handleNavigateDetails = (id) => {
     navigate(`/details/${id}`);
   };
@@ -44,6 +45,7 @@ export function Home() {
     fetchSearch();
   }, [search]);
 console.log(data)
+console.log(isAdmin)
   const renderCategoryCarousel = (category, title) => {
     if (!data.find((item) => item.category === category)) return null;
     return(
@@ -57,7 +59,7 @@ console.log(data)
               <Card
                 key={item.id || index}
                 title={item.title}
-                price={item.price.toFixed(2)}
+                price={item.price.toFixed(2).replace('.', ',')}
                 description={item.description}
                 image={`${api.defaults.baseURL}/files/${item.food_icon}`}
                 quantity="2"

@@ -2,14 +2,15 @@ import { List } from "@phosphor-icons/react"
 import { Brand } from "../../brand"
 import logo from '../../../assets/logo_cake.svg'
 import useMobile from "../../../hooks/useMobile"
-import { Container, MenuHeader, MenuButton, BrandHeader, AdminUser } from './styles'
+import { Container, MenuHeader, MenuButton, BrandHeader, AdminUser, Receive } from './styles'
 import { useTheme } from "styled-components";
-
+import { useAuth } from "../../../hooks/authContext"
+import { Receipt } from "@phosphor-icons/react"
 export function HeaderMobile() {
-    // TODO: depois da integração com a api criar a lógica para mostrar o componente AdminUser apenas quando for um usuário admin
     const isMobile = useMobile()
     const theme = useTheme();
-
+    const {isAdmin} = useAuth()
+    console.log(isAdmin)
     return (
         <Container>
             <MenuHeader>
@@ -23,7 +24,7 @@ export function HeaderMobile() {
                         styletext={isMobile ? theme.fonts.robotoBoldBig : theme.fonts.robotoBoldBigger}
                         corbrand="#ffffff"
                         gap='10px' />
-                    <AdminUser>admin</AdminUser>
+                    {isAdmin ? <AdminUser>admin</AdminUser> : <Receive><Receipt color="white" size={32}/><span>0</span></Receive>}
                 </BrandHeader>
             </MenuHeader>
         </Container>
