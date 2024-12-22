@@ -11,14 +11,11 @@ import { useState } from "react"
 export function SignIn() {
     const theme = useTheme();
     const isMobile = useMobile()
-    // TODO: mudar a cor do input e borda
-    // TODO: retirar o event.preventDefault()
     const { signIn } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     function handleSignIn() {
-        event.preventDefault();
         signIn({ email, password })
     }
     return (
@@ -27,7 +24,7 @@ export function SignIn() {
                 <Brand
                     gap='1rem'
                     logo={logo_cake}
-                    sizelogo='4.3rem'
+                    sizelogo='43px'
                     styletext={theme.fonts.robotoBoldBig2}
                     corbrand={theme.COLORS.LIGHT_100}
                 />
@@ -36,28 +33,31 @@ export function SignIn() {
                     <FormCamp>
                         <h3>Email</h3>
                         <Input
-                            backgroundcolor={theme.COLORS.DARK_900}
-                            borderradius="8px"
+                            backgroundcolor={isMobile ? theme.COLORS.DARK_900 : theme.COLORS.DARK_700}
+                            borderradius="5px"
                             type="email"
                             placeholder="Exemplo: exemplo@exemplo.com.br"
                             onChange={e => setEmail(e.target.value)}
+                            border= {isMobile ? 'none' : '1px solid #FFFFFF'}
+
                         />
                     </FormCamp>
-
                     <FormCamp>
                         <h3>Senha</h3>
                         <Input
-                            backgroundcolor={theme.COLORS.DARK_900}
-                            borderradius="8px"
+                            backgroundcolor={isMobile ? theme.COLORS.DARK_900 : theme.COLORS.DARK_700}
+                            borderradius="5px"
                             type="password"
                             placeholder="No mínimo 6 caracteres"
                             onChange={e => setPassword(e.target.value)}
+                            border= {isMobile ? 'none' : '1px solid #FFFFFF'}
                         />
                     </FormCamp>
                     <Button
                         bgColor={theme.COLORS.TINTS_TOMATO_100}
                         text="Entrar"
-                        onClick={handleSignIn}
+                        onClick={(e) => handleSignIn(e)}
+                        type="button"
                     />
 
                     <Link to="/register">Criar conta</Link>

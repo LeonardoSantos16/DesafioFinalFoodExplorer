@@ -38,7 +38,6 @@ export function CreatePrate() {
     }
 
     async function handleCreatePrate() {
-        event.preventDefault()
         const food = {
             title,
             category,
@@ -53,7 +52,6 @@ export function CreatePrate() {
             const response = await api.post("/food/icon/", pictureFood);
             food.food_icon = response.data;
         }
-        console.log(food)
         await api.post("/food/", food)
         alert("Prato criado com sucesso");
         navigate("/")
@@ -149,7 +147,7 @@ export function CreatePrate() {
                     <Button
                         bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
                         text="Salvar alterações"
-                        onClick={handleCreatePrate}
+                        onClick={(e) => handleCreatePrate(e)}
                     />
                 </UploadButtons>
 

@@ -7,7 +7,6 @@ export const useTablet = () => {
     const handleResize = () => setIsTablet(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
 
-    // Cleanup para remover o event listener quando o componente desmonta
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

@@ -33,7 +33,6 @@ export function UpdatePrate() {
 
 
     async function handleUpdatePrate() {
-        event.preventDefault()
         const prateUpdated = {
             title,
             category,
@@ -43,7 +42,6 @@ export function UpdatePrate() {
         }
         if (imageFood) {
             const pictureFood = new FormData();
-            console.log("Imagem do prato:", imageFood);
             pictureFood.append("food_icon", imageFood)
 
             const response = await api.put(`/food/icon/${params.id}`, pictureFood);
@@ -59,11 +57,9 @@ export function UpdatePrate() {
     function handleAddIngredients() {
 
         setIngredients(prevState => [...prevState, newIngredients]);
-        console.log(ingredients)
     }
 
     async function handleDeletePrate() {
-        event.preventDefault()
         await api.delete(`/food/${params.id}`)
         alert("prato excluído com sucesso")
         navigate("/")
@@ -168,13 +164,13 @@ export function UpdatePrate() {
                         width='13.5rem'
                         bgColor={({ theme }) => theme.COLORS.DARK_800}
                         text="Excluir prato"
-                        onClick={handleDeletePrate}
+                        onClick={(e) => handleDeletePrate(e)}
                     />
                     <Button
                         width='17.2rem'
                         bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
                         text="Salvar alterações"
-                        onClick={handleUpdatePrate}
+                        onClick={(e) => handleUpdatePrate(e)}
                     />
                 </UploadButtons>
 

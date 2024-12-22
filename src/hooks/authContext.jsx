@@ -7,7 +7,6 @@ export const myContext = createContext({});
 function AuthenticatorProvider({ children }) {
     const [data, setData] = useState({});
     const [isAdmin, setIsAdmin] = useState();
-    console.log(data)
     async function signIn({ email, password }) {
         try {
             const response = await api.post("/sessions", { email, password }, { withCredentials: true });

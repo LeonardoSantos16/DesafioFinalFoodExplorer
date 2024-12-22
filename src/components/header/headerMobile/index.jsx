@@ -10,7 +10,6 @@ export function HeaderMobile() {
     const isMobile = useMobile()
     const theme = useTheme();
     const {isAdmin} = useAuth()
-    console.log(isAdmin)
     return (
         <Container>
             <MenuHeader>

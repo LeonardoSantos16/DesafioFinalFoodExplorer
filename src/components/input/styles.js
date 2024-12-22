@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: ${(props) => props.width ? props.width : "100%"};
     height: 4.8rem;
     border-radius: ${(props) => props.$borderradius || '0.5rem'};
+    border: ${(props) => props.$border || 'none'};
     display: flex;
     justify-content: center;
     flex-direction: row;

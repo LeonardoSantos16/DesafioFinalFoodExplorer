@@ -19,8 +19,7 @@ export function HeaderDesktop({ onChange, value }) {
     function handleNewPrate() {
         navigate('/new')
     }
-    console.log(isAdmin)
-    const ButtonHeader = ({ isAdmin }) => {  // Alterar de 'isAdmin' para 'isAdmin'
+    const ButtonHeader = ({ isAdmin }) => { 
         if (isAdmin) {
             return (
                 <Button

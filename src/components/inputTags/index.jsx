@@ -13,7 +13,6 @@ export function InputTags({ isNew, title, onClick, ...rest }) {
             <button
                 type="button"
                 onClick={onClick}
-                // onClick={onClick}
                 className={isNew ? 'button-add' : 'button-delete'} >
                 {isNew ? <Plus size={8} /> : <X size={8} />}
             </button>
