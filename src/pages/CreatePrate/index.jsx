@@ -14,6 +14,7 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { InputFile } from "../../components/inputFile";
+
 export function CreatePrate() {
     const isMobile = useMobile()
     const flag = false

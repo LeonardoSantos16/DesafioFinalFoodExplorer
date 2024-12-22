@@ -98,11 +98,11 @@ export const QuantityAdd = styled.div`
     align-items: center;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
-   
     > button {
         background: none;
         cursor: pointer;
     }
+    
     > span {
         ${({ theme }) => theme.fonts.robotoRegularSmall}
         color: ${({ theme }) => theme.COLORS.LIGHT_300};

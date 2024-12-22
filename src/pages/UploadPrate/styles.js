@@ -19,7 +19,8 @@ export const ContentForm = styled.form`
     padding: 0 1rem;
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 5rem;
+    margin-bottom: 11.4rem;
+    margin-top: 4rem;
   
     > h2{
         ${({ theme }) => theme.fonts.poppinsMedium400}
@@ -33,10 +34,10 @@ export const FormCamp = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    width: ${(props) => props.width ? props.width : '100%'};
-
- 
-
+    width: 100%;
+    @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
+        width: ${(props) => props.width ? props.width : '100%'};
+    }
 `
 
 export const IngredientsCamp = styled.div`

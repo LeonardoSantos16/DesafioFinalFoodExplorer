@@ -32,6 +32,5 @@ export const Copyright = styled.p`
     color: ${theme.COLORS.LIGHT_200};
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
         ${theme.fonts.robotoRegularSmaller}
-    }
-    
+    } 
 `

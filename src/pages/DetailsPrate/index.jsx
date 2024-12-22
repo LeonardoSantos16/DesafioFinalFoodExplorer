@@ -1,12 +1,9 @@
 import { ButtonBack } from "../../components/buttonBack";
 import { ContainerDetails, ContentFood, ImageFood, InfoFood, EditContent, FoodDescription, FoodTags, BackContainer, EditButton, QuantityAdd, ContentOrder, IncludeContainer } from "./styles";
-import salada from '../../assets/salada.png'
 import { Tag } from "../../components/tag";
 import { Button } from "../../components/button";
-import { HeaderDesktop } from "../../components/header/headerDesktop";
 import { Footer } from "../../components/footer";
 import useTablet from "../../hooks/useTablet";
-import { HeaderMobile } from "../../components/header/headerMobile";
 import { Minus, Plus, Receipt } from "@phosphor-icons/react"
 import { Header } from "../../components/header";
 import { useNavigate, useParams } from "react-router-dom";
@@ -16,7 +13,7 @@ import { useAuth } from "../../hooks/authContext";
 export function DetailsPrate() {
     const isTablet = useTablet()
 
-    const isAdmin = useAuth()
+    const {isAdmin} = useAuth()
     const navigate = useNavigate()
     const params = useParams()
     const [data, setData] = useState({})
@@ -69,7 +66,6 @@ export function DetailsPrate() {
         }
         fetchPrate();
     }, [])
-
     return (
         <ContainerDetails>
             <Header />

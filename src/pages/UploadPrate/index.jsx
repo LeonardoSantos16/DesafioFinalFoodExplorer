@@ -14,11 +14,9 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useParams, useNavigate } from "react-router-dom";
 import { InputFile } from "../../components/inputFile";
-import { CaretDown } from "@phosphor-icons/react";
 
 export function UpdatePrate() {
     const isMobile = useMobile()
-    const flag = false
     const [data, setData] = useState(null);
     const [title, setTitle] = useState('')
     const [price, setPrice] = useState(0)

@@ -44,7 +44,6 @@ export function Home() {
   useEffect(() => {
     fetchSearch();
   }, [search]);
-  console.log(data)
   const renderCategoryCarousel = (category, title) => {
     if (!data.find((item) => item.category === category)) return null;
     return(

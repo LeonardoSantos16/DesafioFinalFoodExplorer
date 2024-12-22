@@ -16,9 +16,9 @@ export const ContainerBanner = styled.div`
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
         max-width: 114rem;
         height: 26rem;
-     margin: 16rem auto 0;
-
+        margin: 16rem auto 0;
     }
+
     > img {
         height: 14.9rem;
         width: 19.1rem;
@@ -37,6 +37,7 @@ export const ContainerBanner = styled.div`
 export const BannerContent = styled.div`
     display: flex;
     flex-direction: column;
+    
     > h1 {
         ${({ theme }) => theme.fonts.poppinsSemiBold}
         color: ${({ theme }) => theme.COLORS.LIGHT_300};

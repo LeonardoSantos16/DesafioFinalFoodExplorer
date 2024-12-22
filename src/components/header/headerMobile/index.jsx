@@ -6,16 +6,26 @@ import { Container, MenuHeader, MenuButton, BrandHeader, AdminUser, Receive } fr
 import { useTheme } from "styled-components";
 import { useAuth } from "../../../hooks/authContext"
 import { Receipt } from "@phosphor-icons/react"
+import { useState } from "react"
+import Sidebar from "../../sidebar"
 export function HeaderMobile() {
+    const [isOpen, setIsOpen] = useState(false);
     const isMobile = useMobile()
     const theme = useTheme();
     const {isAdmin} = useAuth()
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen)
+    }
     return (
         <Container>
             <MenuHeader>
-                <MenuButton>
+                <MenuButton onClick={toggleSidebar}>
                     <List size={24} color="#ffffff" />
                 </MenuButton>
+                {isOpen &&
+                    <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+                }
                 <BrandHeader>
                     <Brand
                         logo={logo}

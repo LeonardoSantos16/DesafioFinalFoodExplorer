@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 22.9rem;
+    width: 100%;
     height: 4.8rem;
     border-radius: ${(props) => props.$borderradius || '0.5rem'};
     display: flex;

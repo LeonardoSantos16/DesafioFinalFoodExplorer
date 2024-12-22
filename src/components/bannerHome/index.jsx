@@ -1,5 +1,4 @@
 import bannerMobile from '../../assets/imageBanner.svg'
-import imageBannerMobile from '../../assets/imageBannerMobile.png'
 import bannerDesktop from '../../assets/bannerDesktop.png'
 import useTablet from '../../hooks/useTablet'
 import { ContainerBanner, BannerContent } from './styles'

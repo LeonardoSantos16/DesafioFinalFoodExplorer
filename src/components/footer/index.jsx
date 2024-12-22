@@ -3,6 +3,7 @@ import { Brand } from "../brand";
 import useMobile from "../../hooks/useMobile";
 import { Container, Copyright, FooterContent } from "./styles";
 import { useTheme } from "styled-components";
+
 export function Footer() {
     const isMobile = useMobile()
     const theme = useTheme();
