@@ -18,7 +18,7 @@ export const Container = styled.div`
         background: transparent;
         width: 65%;
         border: none;
-        
+        outline: none;
         &::placeholder {
         color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }

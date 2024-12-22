@@ -13,10 +13,10 @@ import useMobile from "../../hooks/useMobile";
 import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { InputFile } from "../../components/inputFile";
 export function CreatePrate() {
     const isMobile = useMobile()
     const flag = false
-    // TODO: ajustar o tamanho dos input
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
     const [price, setPrice] = useState(0);
@@ -70,9 +70,9 @@ export function CreatePrate() {
                 />
                 <h2>Adicionar Prato</h2>
                 <InputContent>
-                    <FormCamp>
+                    <FormCamp width='22.9rem'>
                         <Label title="Imagem do prato" />
-                        <Input
+                        <InputFile
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
                             borderradius='8px'
                             icon={UploadSimple}
@@ -82,7 +82,7 @@ export function CreatePrate() {
                         />
 
                     </FormCamp>
-                    <FormCamp>
+                    <FormCamp width='46.3rem'>
                         <Label title="Nome" />
                         <Input
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
@@ -93,7 +93,7 @@ export function CreatePrate() {
                             onChange={e => setTitle(e.target.value)}
                         />
                     </FormCamp>
-                    <FormCamp>
+                    <FormCamp width='36.4rem'>
                         <Label title="Categoria" />
                         <Select onChange={e => setCategory(e.target.value)} value={category}>
                             <option value="meal">Refeições</option>
@@ -126,7 +126,7 @@ export function CreatePrate() {
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
                             borderradius='8px'
                             type="number" id="price" name="price"
-                            placeholder="R$ 00,00" label="tddddext"
+                            placeholder="R$ 00,00" label="preco"
                             value={price}
                             onChange={e => setPrice(e.target.value)}
                         />

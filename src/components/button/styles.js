@@ -5,7 +5,7 @@ export const Container = styled.button`
     display: flex;
     justify-content: center;
     gap: ${props => props.$gap || '.4rem'};
-    width: 100%;
+    width: ${props => props.$width || '100%'};
     height: ${props => props.height || '4.8rem'};
     border-radius: 5px;
     padding: 1.2rem 0rem;

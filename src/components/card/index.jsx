@@ -17,7 +17,7 @@ export function Card({ title, price, quantity, image, description, ...rest }) {
             </TitleFood>
             {!isTablet && <CardDescription>{description}</CardDescription>}
             <CardPrice>R$ {price}</CardPrice>
-            {isAdmin &&
+            {!isAdmin &&
             <AddCard>
             <QuantityAdd>
                 <button> <Minus size="27px" color="#ffffff" />  </button>

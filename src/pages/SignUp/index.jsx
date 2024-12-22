@@ -40,9 +40,9 @@ export function SignUp() {
         <Container>
             <SignContent>
                 <Brand
-                    gap='10px'
+                    gap='1rem'
                     logo={logo_cake}
-                    sizelogo='43px'
+                    sizelogo='4.3rem'
                     styletext={theme.fonts.robotoBoldBig2}
                     corbrand={theme.COLORS.LIGHT_100}
                 />

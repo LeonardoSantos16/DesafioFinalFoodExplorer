@@ -31,7 +31,7 @@ export const ContentForm = styled.form`
 export const FormCamp = styled.div`
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    gap: 1.6rem;
     width: ${(props) => props.width ? props.width : '100%'};
 
  
@@ -63,27 +63,17 @@ export const UploadButtons = styled.div`
 export const InputContent = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 3.2rem;
     width: 100%;
 
     @media (min-width: ${({ theme }) => theme.BREAKPOINTS.tablet}){
         flex-direction: row;
-/*
-        & > :nth-last-child() {
-            width: 15rem;
-        }
-   :nth-last-child(1){
-            background-color: yellow;
-        }
-      
-            */
-       
     }
 
 `
 
 export const Select = styled.select`
-    background: ${({ theme }) => theme.COLORS.DARK_900};
+    background: ${({ theme }) => theme.COLORS.DARK_800};
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     width: 100%;
     height: 4.8rem;

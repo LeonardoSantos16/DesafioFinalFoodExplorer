@@ -14,7 +14,6 @@ import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/authContext";
 export function DetailsPrate() {
-    // TODO: colocar o preco real no ButtonCustomer
     const isTablet = useTablet()
 
     const isAdmin = useAuth()

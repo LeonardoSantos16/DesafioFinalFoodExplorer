@@ -12,11 +12,11 @@ import { HeaderDesktop } from "../../components/header/headerDesktop";
 import useMobile from "../../hooks/useMobile";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { InputFile } from "../../components/inputFile";
+import { CaretDown } from "@phosphor-icons/react";
+
 export function UpdatePrate() {
-    // TODO: ajustar o tamanho dos input
-    // mudar o placeholder do input image
     const isMobile = useMobile()
     const flag = false
     const [data, setData] = useState(null);
@@ -47,11 +47,8 @@ export function UpdatePrate() {
             pictureFood.append("food_icon", imageFood)
 
             const response = await api.put(`/food/icon/${params.id}`, pictureFood);
-            console.log("teste2")
         }
-        console.log(prateUpdated)
         await api.patch(`/food/${params.id}`, prateUpdated)
-        console.log("teste4")
         alert("Prato atualizado com sucesso");
         navigate("/")
     }
@@ -98,11 +95,11 @@ export function UpdatePrate() {
                 />
                 <h2>Editar Prato</h2>
                 <InputContent>
-                    <FormCamp>
+                    <FormCamp width='22.9rem'>
                         <Label title="Imagem do prato" />
-                        <Input
+                        <InputFile
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
-                            borderradius='8px'
+                            borderradius='.8rem'
                             icon={UploadSimple}
                             type="file" id="image-upload" name="image"
                             placeholder="Selecione imagem"
@@ -110,18 +107,18 @@ export function UpdatePrate() {
                         />
 
                     </FormCamp>
-                    <FormCamp>
+                    <FormCamp width='46.3rem'>
                         <Label title="Nome" />
                         <Input
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
-                            borderradius='8px'
+                            borderradius='.8rem'
                             type="text" id="name" name="name"
                             placeholder="Ex.: Salada Ceasar"
                             value={title}
                             onChange={e => setTitle(e.target.value)}
                         />
                     </FormCamp>
-                    <FormCamp>
+                    <FormCamp width='36.4rem'>
                         <Label title="Categoria" />
                         <Select value={category}
                             onChange={e => setCategory(e.target.value)}
@@ -130,12 +127,11 @@ export function UpdatePrate() {
                             <option value="drink">Bebidas</option>
                             <option value="dessert">Sobremesas</option>
                         </Select>
-
                     </FormCamp>
                 </InputContent>
 
                 <InputContent>
-                    <FormCamp>
+                    <FormCamp width='83.7rem'>
                         <Label title="Ingredientes" />
                         <IngredientsCamp>
                             {ingredients.map((ingredient, index) => (
@@ -144,11 +140,11 @@ export function UpdatePrate() {
                             <InputTags placeholder="Adicionar" onClick={handleAddIngredients} onChange={e => setNewIngredients(e.target.value)} value={newIngredients} isNew={true} />
                         </IngredientsCamp>
                     </FormCamp>
-                    <FormCamp >
+                    <FormCamp width='25.1rem' >
                         <Label title="Preço" />
                         <Input
                             backgroundcolor={({ theme }) => theme.COLORS.DARK_800}
-                            borderradius='8px'
+                            borderradius='.8rem'
                             type="number" id="price" name="price"
                             placeholder="R$ 00,00" label="tddddext"
                             value={price}
@@ -169,11 +165,13 @@ export function UpdatePrate() {
 
                 <UploadButtons>
                     <Button
+                        width='13.5rem'
                         bgColor={({ theme }) => theme.COLORS.DARK_800}
                         text="Excluir prato"
                         onClick={handleDeletePrate}
                     />
                     <Button
+                        width='17.2rem'
                         bgColor={({ theme }) => theme.COLORS.TINTS_TOMATO_400}
                         text="Salvar alterações"
                         onClick={handleUpdatePrate}

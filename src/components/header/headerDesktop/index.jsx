@@ -27,8 +27,8 @@ export function HeaderDesktop({ onChange, value }) {
                     onClick={handleNewPrate}
                     bgColor={theme.COLORS.TINTS_TOMATO_100}
                     text='Novo prato'
-                    $gap='8px'
-                    height="56px"
+                    $gap='.8rem'
+                    height="5.6rem"
                 />
             );
         } else {
@@ -37,8 +37,8 @@ export function HeaderDesktop({ onChange, value }) {
                     bgColor={theme.COLORS.TINTS_TOMATO_100}
                     icon={Receipt}
                     text='Pedidos (0)'
-                    $gap='8px'
-                    height="56px"
+                    $gap='.8rem'
+                    height="5.6rem"
                 />
             );
         }
@@ -49,8 +49,8 @@ export function HeaderDesktop({ onChange, value }) {
             <NavHeader>
                 <Brand
                     logo={logo}
-                    sizeLogo='30px'
-                    gap='10px'
+                    sizeLogo='3rem'
+                    gap='1rem'
                     corbrand={theme.COLORS.LIGHT_100}
                     styletext={theme.fonts.robotoBoldBigger} />
 
@@ -61,7 +61,7 @@ export function HeaderDesktop({ onChange, value }) {
                         backgroundcolor={theme.COLORS.DARK_900}
                         onChange={onChange}
                         value={value}
-                        width='250px'
+                        width='25rem'
                         color='ffffff'
                     />
                 </InputHeader>
