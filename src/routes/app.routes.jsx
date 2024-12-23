@@ -11,7 +11,6 @@ export function AppRoutes() {
             <Route path="/new" element={<CreatePrate />} />
             <Route path="/details/:id" element={<DetailsPrate />} />
             <Route path="/update/:id" element={<UpdatePrate />} />
-            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     )
 }

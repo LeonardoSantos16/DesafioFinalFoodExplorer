@@ -8,7 +8,6 @@ export function CustomerRoutes() {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/details/:id" element={<DetailsPrate />} />
-            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     )
 }
