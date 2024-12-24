@@ -9,12 +9,14 @@ function AuthenticatorProvider({ children }) {
     const [isAdmin, setIsAdmin] = useState();
     async function signIn({ email, password }) {
         try {
-            const response = await api.post("/sessions", { email, password }, { withCredentials: true });
-            const { user } = response.data;
+            const response = await api.post("/sessions", { email, password });
+            const { user, token } = response.data;
             setIsAdmin(user.role == 'admin')
             localStorage.setItem("@desafiofinal:user", JSON.stringify(user));
+            localStorage.setItem("@desafiofinal:token", token);
 
-            setData({ user });
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            setData({ user, token });
         } catch (error) {
             if (error.response) {
                 alert(error.response.data.message);
@@ -26,15 +28,18 @@ function AuthenticatorProvider({ children }) {
 
     async function signOut() {
         localStorage.removeItem('@desafiofinal:user');
+        localStorage.removeItem('@desafiofinal:token')
         setData({});
     }
   
 
     useEffect(() => {
         const user = localStorage.getItem("@desafiofinal:user");
-        if (user) {
+        const token = localStorage.getItem("@desafiofinal:token");
+        if (token && user) {
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const parsedUser = JSON.parse(user);
-            setData({ user: parsedUser });
+            setData({ token, user: parsedUser });
             setIsAdmin(parsedUser.role === 'admin'); 
         }
     }, []);
