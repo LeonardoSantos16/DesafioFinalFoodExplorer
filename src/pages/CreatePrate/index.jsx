@@ -26,10 +26,11 @@ export function CreatePrate() {
     const [newIngredients, setNewIngredients] = useState("");
     const [ingredients, setIngredients] = useState([])
 
-    function handleBack() {
-        Navigate(-1)
-    }
     const navigate = useNavigate();
+
+    function handleBack() {
+        navigate(-1)
+    }
     function handleRemoveIngredients(deleted) {
         setIngredients(prevState => prevState.filter(ingredients => ingredients !== deleted))
     }

@@ -14,6 +14,8 @@ export function HeaderDesktop({ onChange, value }) {
 
     function handleSignOut() {
         signOut()
+        navigate('/')
+
     }
 
     function handleNewPrate() {
@@ -70,7 +72,7 @@ export function HeaderDesktop({ onChange, value }) {
                 </ContentIsAdmin> 
                 
 
-                <ButtonSignOut onClick={handleSignOut}>
+                <ButtonSignOut type="button" onClick={handleSignOut}>
                     <SignOut size={32} />
                 </ButtonSignOut>
             </NavHeader>

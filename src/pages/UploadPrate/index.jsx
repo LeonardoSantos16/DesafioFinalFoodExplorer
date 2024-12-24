@@ -57,6 +57,9 @@ export function UpdatePrate() {
         setIngredients(prevState => [...prevState, newIngredients]);
     }
 
+    function handleBack() {
+        navigate(-1)
+    }
     async function handleDeletePrate() {
         await api.delete(`/food/${params.id}`)
         alert("prato excluído com sucesso")
@@ -84,7 +87,7 @@ export function UpdatePrate() {
 
 
             <ContentForm>
-                <ButtonBack
+                <ButtonBack onClick={handleBack}
                     sizearrow={22}
                 />
                 <h2>Editar Prato</h2>
